@@ -1,0 +1,1 @@
+web: gunicorn recipebook_project.wsgi
