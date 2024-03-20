@@ -39,3 +39,9 @@ class Recipe(models.Model):
             unique_slug = f"{slug}-{self.author.username}"
             self.slug = unique_slug
         super(Recipe, self).save(*args, **kwargs)
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return f"{self.title} | Recipe by {self.author}"
