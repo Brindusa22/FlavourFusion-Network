@@ -21,6 +21,7 @@ from recipes import views as recipes_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index_views.index, name='index'),
     path('recipes/', recipes_views.recipe_list, name='recipe_list'),
+    path('summernote/', include('django_summernote.urls')),
+    path('', index_views.index, name='index'),
 ]
