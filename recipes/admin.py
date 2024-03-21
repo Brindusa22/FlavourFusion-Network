@@ -6,9 +6,9 @@ import json
 @admin.register(Recipe)
 class RecipeAdmin(SummernoteModelAdmin):
     
-    list_display = ('title', 'author', 'slug', 'status')
-    search_fields = ['title']
-    list_filter = ('status',)
+    list_display = ('title', 'author', 'slug', 'created_on', 'status')
+    search_fields = ['title', 'ingredients']
+    list_filter = ('status', 'created_on')
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('description', 'ingredients', 'instructions')
 
