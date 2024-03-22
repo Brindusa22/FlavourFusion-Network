@@ -16,6 +16,7 @@ class RecipeAdmin(SummernoteModelAdmin):
         ingredients_json = instance.ingredients
         ingredients_list = json.loads(ingredients_json.replace("'", '"'))
         formatted_ingredients = "\n ".join([f"{ingredient['name']} : {ingredient['measure']}" for ingredient in ingredients_list])
+        print (formatted_ingredients)
         return formatted_ingredients
     
     get_ingredients.short_description = 'Ingredients'
