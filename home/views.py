@@ -1,6 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from recipes.models import Recipe
 
 # Create your views here.
-def index(request):
-    return HttpResponse("Home Page")
+
+class HomePageView(generic.ListView):
+    model = Recipe
+    queryset = Recipe.objects.all()[:5]
+    template_name = "home/home_page.html"
+    
