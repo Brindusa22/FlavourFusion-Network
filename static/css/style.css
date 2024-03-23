@@ -2,6 +2,7 @@ body {
     background-color: #F9FAFC;
 }
 
+/* Styles for recipe_detail page */
 .breadcrumb-item a, .breadcrumb-item.active {
     color: #9E9E9E;
     font-size: 18px;    
@@ -87,6 +88,17 @@ body {
 .centered-text {
     text-align: center;
 }
+
+/* Styles for recipe page */
+.recipe-list-title {
+    padding: 0;
+    font-size: 30px;
+}
+
+.card-content {
+    padding: 10px;
+}
+
 
 
 .brand {
