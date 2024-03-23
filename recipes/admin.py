@@ -10,21 +10,7 @@ class RecipeAdmin(SummernoteModelAdmin):
     search_fields = ['title', 'ingredients']
     list_filter = ('status', 'created_on')
     prepopulated_fields = {'slug': ('title',)}
-    summernote_fields = ('description', 'ingredients', 'instructions')
-
-    def get_ingredients(self, instance):
-        ingredients_json = instance.ingredients
-        ingredients_list = json.loads(ingredients_json.replace("'", '"'))
-        formatted_ingredients = "\n ".join([f"{ingredient['name']} : {ingredient['measure']}" for ingredient in ingredients_list])
-        print (formatted_ingredients)
-        return formatted_ingredients
-    
-    get_ingredients.short_description = 'Ingredients'
-
-    def save_model(self, request, obj, form, change):
-        obj.ingredients = self.get_ingredients(obj)
-        obj.save()
-        super().save_model(request, obj, form, change)
-
+    summernote_fields = ('description', 'ingredients', 'get_ingredients', 'instructions')
+   
 # Register your models here.
 

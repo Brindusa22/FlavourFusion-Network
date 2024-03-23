@@ -1,83 +1,88 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-
 <div class="row">
-    <div class="recipe-header-container">
+    <div class="col recipe-container">
+        <div class="recipe-header-container">
+            <div class="row g-0 justify-content-center">
+                <div class="col-lg-6 mb-2 mt-5">
+                    <!-- Breadcrumbs Bootstrap -->
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">{{ recipe.meal_type }}</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ recipe.title}}</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="row g-0 justify-content-center">
+                <div class="col-lg-6">
+                    <!-- Recipe title goes in these h1 tags -->
+                    <h1 class="card-title">{{ recipe.title }}</h1>
+                    <!-- Recipe author goes before | created date goes after -->
+                    <p>Author: {{ recipe.author }} | {{ recipe.created_on }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-success">
+            <hr>
+        </div>
         <div class="row g-0 justify-content-center">
-            <div class="col-md-6 mb-2 mt-5 ">
-                <!-- Breadcrumbs Bootstrap -->
-                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">{{ recipe.meal_type }}</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ recipe.title}}</li>
-                    </ol>
-                </nav>
+            <div class="col-lg-6 card-text recipe-description">
+                <!-- Recipe description -->
+                <p>{{ recipe.description }}</p>
             </div>
         </div>
 
+        <!-- Main Image -->
         <div class="row g-0 justify-content-center">
-            <div class="col-md-6">
-                <!-- Recipe title goes in these h1 tags -->
-                <h1 class="recipe-title">{{ recipe.title }}</h1>
-                <!-- Recipe author goes before | created date goes after -->
-                <p class="recipe-subtitle">Author: {{ recipe.author }} | {{ recipe.created_on }}</p>
+            <div class="col-lg-6 sm-12 recipe-image">
+                <img src="{% static 'images/default.webp' %}" class="scale" alt="placeholder">
             </div>
         </div>
-    </div>
-    <div class="text-success">
-        <hr>
-    </div>
-    <div class="row g-0 justify-content-center">
-        <div class="col-md-6">
-            <!-- Recipe description -->
-            <p class="recipe-subtitle">{{ recipe.description }}</p>
-        </div>
-    </div>
-
-    <!-- Main Image -->
-    <div class="row g-0 justify-content-center">
-        <div class="d-md-block col-md-6 sm-12">
-            <img src="{% static 'images/default.webp' %}" class="scale" alt="placeholder">
-        </div>
-    </div>
 
 
-    <div class="container">
-        <div class="row g-0 justify-content-center">
-            <div class="col-md-6 card">
-                <div class="card-body">
-                    <h2 class="card-title">{{ recipe.title }}</h2>
-                    <hr>
-                    <div class="recipe-details">
-                        <div class="recipe-time">
-                            <i class="fa-solid fa-clock"></i></i>
-                            <span>Total Time: {{recipe.total_time}}</span>
+        <div class="container">
+            <div class="row g-0 justify-content-center">
+                <div class="col-lg-6 card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <h2 class="centered-text">{{ recipe.title }}</h2>
+                            <hr>
+                            <div class="recipe-details">
+                                <div class="recipe-time">
+                                    <i class="fa-solid fa-clock"></i>
+                                    <span class="details-label">Total Time: </span> <span>{{recipe.total_time}}</span>
+                                </div>
+                                <div class="recipe-servings">
+                                    <i class="fa-solid fa-utensils"></i>
+                                    <span class="details-label">Servings: </span> <span> {{ recipe.servings }}</span>
+                                </div>
+                         </div>
                         </div>
-                        <div class="recipe-servings">
-                            <i class="fa-solid fa-utensils"></i>
-                            <span>Servings: {{ recipe.servings }}</span>
+                        <hr>
+                        <div class="card-text">
+                            <h4>Ingredients:</h4>
+                            <div class="recipe-ingredients">
+                                <p>
+                                {{ recipe.ingredients|safe }}
+                                </p>
                         </div>
-                    </div>
-                    <hr>
-                    <div>
-                        <h4>Ingredients:</h4>
+                        </div>
 
-                        {{ recipe.ingredients|safe }}
-
-                    </div>
-
-                    <hr>
-                    <div>
-                        <h4>Instructions:</h4>
-                        <p class="card-text"> {{ recipe.instructions | safe }}</p>
+                        <hr>
+                        <div class="card-text">
+                            <h4>Instructions:</h4>
+                            <div class="recipe-instructions">
+                                <p> {{ recipe.instructions | safe }}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-    </div>
-
+</div>
 {% endblock content %}
