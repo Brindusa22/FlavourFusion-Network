@@ -2,6 +2,29 @@ body {
     background-color: #F9FAFC;
 }
 
+/* Styles for the home page */
+
+.home-title {
+    display: flex;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    font-family: "Handlee", cursive;
+    font-weight: 400;
+    font-size: 30px;
+    color: #9E9E9E;
+}
+
+.meal-type-item {
+    width: 300px;
+  
+}
+
+.meal-img-wrap {
+   width: 300px;
+   height: 300px;
+}
+
 /* Styles for recipe_detail page */
 .breadcrumb-item a, .breadcrumb-item.active {
     color: #9E9E9E;

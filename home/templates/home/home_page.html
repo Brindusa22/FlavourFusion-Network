@@ -5,26 +5,102 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12">
             <div class="container text-center">
                 <div class="row">
-                    <div class="col">
-                        Title
+                    <div class="col home-title">
+                        <span class="">Culinary Journey Around the Globe! Discover the World's Flavours with our Recipes!</span>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-6 col-lg-2">img1</div>
-                    <div class="col-sm-12 col-md-6 col-lg-2">img2</div>
-                    <div class="col-sm-12 col-md-6 col-lg-2">img3</div>
-                    <div class="col-sm-12 col-md-6 col-lg-2">img4</div>
-                    <div class="col-sm-12 col-md-6 col-lg-2">img5</div>
+                <div class="row meal-cathegory">
+                    
+                        <div class="col-sm-12 col-md-6 col-lg-2">
+                            <div class="meal-type-item">
+                                <a href="#">
+                                    <div class="meal-img-wrap">
+                                        <img src="{% static 'images/breakfast.png' %}" class="meal-type-img"
+                                            alt="breakfast">
+                                    </div>
+                                    <div class="cathegory-label">
+                                        <p>Breakfast</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    
+                    
+                        <div class="col-sm-12 col-md-6 col-lg-2">
+                            <div class="meal-type-item">
+                            <a href="#">
+                                <div class="meal-img-wrap">
+                                    <img src="{% static 'images/main_course.png' %}" class="meal-type-img" alt="main-course">
+                                </div> 
+                               <p class="cathegory-label">Main Course</p>
+                            </a>
+                            </div>
+                        </div>
+                    
+              
+                        <div class="col-sm-12 col-md-6 col-lg-2">
+                            <div class="meal-type-item">
+                            <a href="#">
+                                <div class="meal-img-wrap">
+                                    <img src="{% static 'images/soups.png' %}" class="meal-type-img" alt="soup">
+                               </div> 
+                               <p class="cathegory-label">Soup</p>
+                            </a>
+                            </div>
+                        </div>
+                    
+                
+                        <div class="col-sm-12 col-md-6 col-lg-2">
+                            <div class="meal-type-item">
+                                <a href="#">
+                                <div class="meal-img-wrap">
+                                    <img src="{% static 'images/appetizer.png' %}" class="meal-type-img" alt="appetizer">
+                               </div>
+                                <p class="cathegory-label">Appetizer</p>
+                                </a>
+                            </div>
+                        </div>
+                
+                   
+                        <div class="col-sm-12 col-md-6 col-lg-2">
+                            <div class="meal-type-item">
+                                <a href="#">
+                                    <div class="meal-img-wrap">
+                                        <img src="{% static 'images/sides.png' %}" class="meal-type-img" alt="sides">
+                                    </div>
+                                <p class="cathegory-label">Sides</p>
+                                </a>
+                            </div>
+                        </div>
+                
+                    
+                        <div class="col-sm-12 col-md-6 col-lg-2">
+                            <div class="meal-type-item">
+                                <a href="#">
+                                    <div class="meal-img-wrap">
+                                        <img src="{% static 'images/dessert.png' %}" class="meal-type-img" alt="dessert">
+                                    </div> 
+                                <p class="cathegory-label">Dessert</p>
+                                </a>
+                            </div>
+                        </div>
+                    
+                     
                 </div>
                 <div class="row">
-                    <div class="col">search</div>
+                    <div class="col">
+                        <div class="container mt-4">
+                            <form class="form-inline">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                              <input class="form-control mr-sm-2 search-field" type="search" placeholder="Search a recipe" aria-label="Search">
+                            </form>
+                          </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </div>
 
 {% endblock %}
