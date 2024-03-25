@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -85,21 +86,24 @@
                                 <p class="cathegory-label">Dessert</p>
                                 </a>
                             </div>
-                        </div>
-                    
-                     
+                        </div>      
                 </div>
+
+
                 <div class="row">
                     <div class="col">
                         <div class="container mt-4">
-                            <form class="form-inline">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                              <input class="form-control mr-sm-2 search-field" type="search" placeholder="Search a recipe" aria-label="Search">
+                            <hr id="search-hr">
+                            <div class="form-label">Search a recipe</div>
+                            <form id="searchForm" method="post">
+                                {{ search_form | crispy }}
+                                {% csrf_token %}
+                                <button id="submitButton" type="submit" class="btn btn-signup btn-lg"> <i class="fa-solid fa-magnifying-glass"></i></button>
                             </form>
-                          </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+                </div>
         </div>
 </div>
 

@@ -2,13 +2,19 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.shortcuts import render
 from django.views import generic
 from recipes.models import Recipe
+from .forms import SearchForm
 
 # Create your views here.
 
-class HomePageView(generic.ListView):
-    model = Recipe
-    queryset = Recipe.objects.filter(status=1)
-    template_name = "home/home_page.html"
+def home_page(request):
+
+    search_form = SearchForm()
+
+    return render(
+        request,
+        "home/home_page.html",
+        {"search_form": search_form}
+    )
 
 
 class BreakfastList(generic.ListView):
