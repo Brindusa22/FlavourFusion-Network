@@ -48,4 +48,40 @@ class SoupList(generic.ListView):
     paginate_by = 6 
 
 
+class AppetizerList(generic.ListView):
+    """
+    Displays a list of appetizer recipes.
+    Retrieves all the recipes from the database and filters them to render only those with status 1 and meal_type appetizer.
+    Ordres the rendered recipes alphabetically.
+    """
+    model = Recipe
+    template_name = "recipes/index.html"
+    queryset = Recipe.objects.filter(status=1, meal_type='appetizer').order_by('title')
+    paginate_by = 6 
+
+
+class SidesList(generic.ListView):
+    """
+    Displays a list of sides recipes.
+    Retrieves all the recipes from the database and filters them to render only those with status 1 and meal_type sides.
+    Ordres the rendered recipes alphabetically.
+    """
+    model = Recipe
+    template_name = "recipes/index.html"
+    queryset = Recipe.objects.filter(status=1, meal_type='sides').order_by('title')
+    paginate_by = 6 
+
+
+class DessertList(generic.ListView):
+    """
+    Displays a list of dessert recipes.
+    Retrieves all the recipes from the database and filters them to render only those with status 1 and meal_type dessert.
+    Ordres the rendered recipes alphabetically.
+    """
+    model = Recipe
+    template_name = "recipes/index.html"
+    queryset = Recipe.objects.filter(status=1, meal_type='dessert').order_by('title')
+    paginate_by = 6 
+
+
         
