@@ -36,5 +36,16 @@ class MainCourseList(generic.ListView):
     paginate_by = 6 
    
 
+class SoupList(generic.ListView):
+    """
+    Displays a list of soup recipes.
+    Retrieves all the recipes from the database and filters them to render only those with status 1 and meal_type soup.
+    Ordres the rendered recipes alphabetically.
+    """
+    model = Recipe
+    template_name = "recipes/index.html"
+    queryset = Recipe.objects.filter(status=1, meal_type='soup').order_by('title')
+    paginate_by = 6 
+
 
         
