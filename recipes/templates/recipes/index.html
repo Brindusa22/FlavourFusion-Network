@@ -6,31 +6,29 @@
 <div class="container-fluid">
     <div class="row">
 
-
-
-        <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
+                {% if recipe_list %}
                 {% for recipe in recipe_list %}
                 <div class="col-md-4">
                     <div class="card mb-4" h-100>
                         <div class="card-content">
                             <div class="image-container">
                                 <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
-                                <img class="card-img-top" src="{% static 'images/default.webp' %}"
+                                    <img class="card-img-top" src="{% static 'images/default.webp' %}"
                                         alt="placeholder"></a>
                                 <div class="image-flash">
                                     <p class="author">Author: {{ recipe.author }}</p>
                                 </div>
                             </div>
-                        
+
                             <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
                                 <h2 class="recipe-list-title">{{ recipe.title }}</h2>
                             </a>
                             <hr />
                             <p class="card-text text-muted h6">{{ recipe.created_on}}
                             </p>
-                        </div>  
+                        </div>
                     </div>
                 </div>
                 {% if forloop.counter|divisibleby:3 %}
@@ -39,6 +37,11 @@
                 {% endif %}
                 {% endfor %}
 
+                {% else %}
+                <div class="col-12">
+                    <p>No recipes found.</p>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -54,8 +57,9 @@
             {% endif %}
         </ul>
     </nav>
+
     {% endif %}
 </div>
 
-<!-- index.html content ends here -->
+
 {% endblock %}
