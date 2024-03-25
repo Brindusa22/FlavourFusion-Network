@@ -11,18 +11,30 @@ class HomePageView(generic.ListView):
     template_name = "home/home_page.html"
 
 
-def breakfast_detail(request):
+class BreakfastList(generic.ListView):
     """
      Displays a list of breakfast recipes.
      Retrieves all the recipes from the database and filters them to render only those with status 1 and meal_type breakfast.
-     Ordres the rendered recipes by their creation date, in descending order "
+     Ordres the rendered recipes alphabetically. 
     """
 
-    recipes = Recipe.objects.filter(status=1, meal_type='breakfast').order_by('-created_on')
-     
+    model = Recipe
+    template_name = "recipes/index.html"
+    queryset = Recipe.objects.filter(status=1, meal_type='breakfast').order_by('title')
+    paginate_by = 6 
    
-    return render(
-        request,
-        "recipes/index.html",
-        {'recipe_list': recipes}
-    )
+
+class MainCourseList(generic.ListView):
+    """
+    Displays a list of main course recipes.
+    Retrieves all the recipes from the database and filters them to render only those with status 1 and meal_type main course.
+    Ordres the rendered recipes alphabetically.
+    """
+    model = Recipe
+    template_name = "recipes/index.html"
+    queryset = Recipe.objects.filter(status=1, meal_type='main_course').order_by('title')
+    paginate_by = 6 
+   
+
+
+        
