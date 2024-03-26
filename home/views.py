@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.shortcuts import render
 from django.views import generic
 from recipes.models import Recipe
@@ -90,4 +90,26 @@ class DessertList(generic.ListView):
     paginate_by = 6 
 
 
-        
+def search_form(request):
+    """
+    View to search a recipe in the search field.
+    """
+    queryset = Recipe.objects.filter(status=1)
+    search_form = SearchForm(request.POST)
+    posts = []
+
+
+    if request.method == 'POST':
+        if search_form.is_valid():
+            print("Received a POST request")
+            search_query = request.POST['query']
+            posts = Recipe.objects.filter(title__icontains=search_query)
+            print(posts)
+
+    # search_form =SearchForm()
+    
+    return render(
+        request,
+        'home/home_page.html',
+        {'search_form' : search_form, 'query' : search_query, 'posts': posts}
+        )
