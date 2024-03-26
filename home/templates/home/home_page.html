@@ -103,28 +103,23 @@
                         </div>
                     </div>
                 </div>
-                <!-- {% if query %} -->
+
                 <div class="row">
                     <div class="col">
                         {% if posts %}
-                        <h2>Results for "{{ query }}"</h2>
-                        <ul>
-                            {% for post in posts %}
-                                <li>{{ post.title }}</li>
-                            {% endfor %}
-                        </ul>
+                            {% if query %}
+                            <h2>Results for "{{ query }}"</h2>
+
+                            <!-- Inject html from search_results.html template -->
+
+                            {% include 'home/search_results.html' %}
+                 
                         {% else %}
-                            <h3>No results found.</h3>
+                            <h3>No results for "{{ query }}" found.</h3>
+                            {% endif %}
                         {% endif %}
                     </div>
                 </div> 
-                <!-- {% else %}
-                    <div class="col">
-                        
-
-                    </div>
-                </div> -->
-                <!-- {% endif %} -->
             </div>
         </div>
 </div>

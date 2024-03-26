@@ -106,7 +106,7 @@ def search_form(request):
             posts = Recipe.objects.filter(title__icontains=search_query)
             print(posts)
 
-    # search_form =SearchForm()
+    search_form =SearchForm()
     
     return render(
         request,
