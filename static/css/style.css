@@ -227,6 +227,32 @@ body {
     padding: 10px;
 }
 
+/* Styles for Registration pages */
+
+.red-title {
+    color: #c7460b;
+}
+
+.btn-signup,
+.btn-edit {
+    background-color: #c7460b;
+    color: #fff;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #fff;
+    color: #c7460b;
+}
+
+.signup li::marker {
+    color: #c7460b;
+}
+
+.user-name {
+    color: #c7460b;
+}
+
 
 
 .brand {
@@ -333,17 +359,6 @@ body {
     color: lightgray;
 }
 
-.btn-signup,
-.btn-edit {
-    background-color: #188181;
-    color: #fff;
-}
-
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
-}
 
 .link {
     color: #23BBBB;
@@ -390,3 +405,15 @@ body {
         display: block;
     }
 }
+
+/* Styles for pnly for large screens */
+
+@media only screen and (min-width: 768px) {
+    .register-container {
+        margin-top: 5rem;
+        border: 1px solid #c7460b;
+        padding: 2rem;
+        border-radius: 10px;
+        background-color: rgb(255, 252, 249);
+    }
+}  
