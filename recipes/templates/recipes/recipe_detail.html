@@ -12,7 +12,22 @@
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">{{ recipe.meal_type | title }}</a></li>
+                            <!-- Logic to wire up the breadcrumb nav link to the view corresponding to the meal type category of the respective recipe. -->  
+                            <li class="breadcrumb-item">
+                                {% if recipe.meal_type == 'breakfast' %}
+                                    <a href="{% url 'breakfast_list' %}">{{ recipe.meal_type | title }}</a>
+                                {% elif recipe.meal_type == 'main_course' %}
+                                <a href="{% url 'main_course_list' %}">{{ recipe.meal_type | title }}</a>
+                                {% elif recipe.meal_type == 'soup' %}
+                                <a href="{% url 'soup_list' %}">{{ recipe.meal_type | title }}</a>
+                                {% elif recipe.meal_type == 'appetizer' %}
+                                <a href="{% url 'appetizer_list' %}">{{ recipe.meal_type | title }}</a>
+                                {% elif recipe.meal_type == 'sides' %}
+                                <a href="{% url 'sides_list' %}">{{ recipe.meal_type | title }}</a>
+                                {% elif recipe.meal_type == 'dessert' %}
+                                <a href="{% url 'dessert_list' %}">{{ recipe.meal_type | title }}</a>
+                                {% endif %}
+                            </li>
                             <li class="breadcrumb-item active" aria-current="page">{{ recipe.title}}</li>
                         </ol>
                     </nav>
