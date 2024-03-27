@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+{% load ratings %}
 <div class="row">
     <div class="col recipe-container">
         <div class="recipe-header-container">
@@ -23,6 +24,7 @@
                     <h1 class="card-title">{{ recipe.title }}</h1>
                     <!-- Recipe author goes before | created date goes after -->
                     <p>Author: {{ recipe.author }} | {{ recipe.created_on }}</p>
+                    <div id="recipe-star-ratings">{% ratings recipe %}</div>
                 </div>
             </div>
         </div>
