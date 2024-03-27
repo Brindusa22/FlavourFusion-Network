@@ -85,7 +85,8 @@ body {
 
 #submitButton {
     margin-bottom: 1rem;
-    background-color: #c7460b;  
+    background-color: #c7460b;
+    color: white;  
 }
 
 #submitButton:hover {
@@ -122,6 +123,11 @@ body {
 
 .search-wrapper:last-child {
     margin-bottom: 40px;
+}
+
+#no-result-msg {
+    margin-bottom: 2rem;
+    color: #9E9E9E;
 }
 
 /* Styles for recipe_detail page */
