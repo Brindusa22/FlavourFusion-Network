@@ -123,33 +123,33 @@
       <h3>Comments:</h3>
       <div class="">
         
-        
-        {% ratings recipe template_name="star_ratings/widget.html" %}
-        {% for rating in ratings %}
+        {% for review in reviews %}
         <div class="p-2 comments">
           <p class="font-weight-bold">
-            {{ rating.author }}'s review: <span class="font-weight-normal">:</span><br>
+            {{ review.author }}'s review:<br>
           </p>
           <div id="comment{{ comment.id }}">
-            {{ rating.comment }}
+            {{ review.comment }}
             <div>
-                {{ rating.created_on }} 
+                {{ review.created_on }} 
             </div>
           </div>
-          {% endfor %}
-          
         </div>
+        
+    {% endfor %}    
+        
 
         <div class="col-md-4 card mb-4 mt-3">
             <div class="card-body">
+ 
               {% if user.is_authenticated %}
               <h3>Leave a comment:</h3>
               <p>Posting as: {{ user.username }}</p>
                 
-        {% ratings recipe template_name="star_ratings/widget.html" %}
+      
               <form id="commentForm" method="post"
                 style="margin-top: 1.3em;">
-                {{ review | crispy }}
+                {{ review_form | crispy }}
                 {% csrf_token %}
                 <button id="submitButton" type="submit"
                   class="btn btn-signup btn-lg">Submit</button>
@@ -157,7 +157,6 @@
               {% else %}
               <p>Log in to leave a comment</p>
               {% endif %}
-            </div>
-          </div>
+            </div>  
 
 {% endblock content %}
