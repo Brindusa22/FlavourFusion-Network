@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% load ratings %}
 
 <div class="row">
@@ -70,7 +71,8 @@
                             <h2 class="centered-text">{{ recipe.title }}</h2>
                             <div class="rating-info">
                                 <span class="details-label">Rating:</span>
-                                <div id="recipe-star-ratings">{% ratings recipe template_name="star_ratings/widget.html" %}</div> 
+                                <div id="recipe-star-ratings">{% ratings recipe template_name="star_ratings/widget.html" %}
+                                </div> 
                             </div>
                             <hr>
                             <div class="recipe-details">
@@ -114,4 +116,48 @@
         </div>
     </div>
 </div>
+
+<!-- Displaying Reviews -->
+<div class="row">
+    <div class="col-md-8 mb-4  mt-3 ">
+      <h3>Comments:</h3>
+      <div class="">
+        
+        
+        {% ratings recipe template_name="star_ratings/widget.html" %}
+        {% for rating in ratings %}
+        <div class="p-2 comments">
+          <p class="font-weight-bold">
+            {{ rating.author }}'s review: <span class="font-weight-normal">:</span><br>
+          </p>
+          <div id="comment{{ comment.id }}">
+            {{ rating.comment }}
+            <div>
+                {{ rating.created_on }} 
+            </div>
+          </div>
+          {% endfor %}
+          
+        </div>
+
+        <div class="col-md-4 card mb-4 mt-3">
+            <div class="card-body">
+              {% if user.is_authenticated %}
+              <h3>Leave a comment:</h3>
+              <p>Posting as: {{ user.username }}</p>
+                
+        {% ratings recipe template_name="star_ratings/widget.html" %}
+              <form id="commentForm" method="post"
+                style="margin-top: 1.3em;">
+                {{ review | crispy }}
+                {% csrf_token %}
+                <button id="submitButton" type="submit"
+                  class="btn btn-signup btn-lg">Submit</button>
+              </form>
+              {% else %}
+              <p>Log in to leave a comment</p>
+              {% endif %}
+            </div>
+          </div>
+
 {% endblock content %}
