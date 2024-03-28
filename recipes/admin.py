@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Recipe
+from .models import Recipe, RecipeRating
 from django_summernote.admin import SummernoteModelAdmin
 import json
 
@@ -14,3 +14,4 @@ class RecipeAdmin(SummernoteModelAdmin):
    
 # Register your models here.
 
+admin.site.register(RecipeRating)

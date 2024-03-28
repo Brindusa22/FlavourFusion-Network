@@ -1,4 +1,5 @@
 from django.db import models
+from star_ratings.models import AbstractBaseRating
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 
@@ -45,3 +46,16 @@ class Recipe(models.Model):
 
     def __str__(self):
         return f"{self.title} | Recipe by {self.author}"
+
+
+class RecipeRating(AbstractBaseRating):
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="reviews")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
+    comment = models.TextField(blank=True, null=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return f"Rating for {self.recipe.title} | {self.comment} by {self.author}"
