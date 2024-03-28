@@ -1,5 +1,4 @@
 from django.db import models
-from star_ratings.models import AbstractBaseRating
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 
@@ -48,7 +47,7 @@ class Recipe(models.Model):
         return f"{self.title} | Recipe by {self.author}"
 
 
-class RecipeRating(AbstractBaseRating):
+class RecipeRating(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="reviews")
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
     comment = models.TextField(blank=True, null=True)
