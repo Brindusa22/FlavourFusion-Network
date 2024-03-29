@@ -269,12 +269,25 @@ body {
     display: flex;
     justify-content:space-between;
     align-items: center;
+    margin-top: 20px;
 }
 
 .review-date {
     font-size: 12px;
 }
 
+.review-form-info {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.rating-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
 
 /* Styles for recipe page */
 .recipe-list-title {
@@ -289,8 +302,6 @@ body {
 .author-small {
     font-size: 15px;
 }
-
-
 
 /* Styles for Registration pages */
 
@@ -319,13 +330,7 @@ body {
 }
 
 
-/* Rating */
 
-.rating-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 
 .brand {
