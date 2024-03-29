@@ -20,6 +20,8 @@ def recipe_detail(request, slug):
     queryset = Recipe.objects.filter(status=1)
     recipe = get_object_or_404(queryset, slug=slug)
     reviews = recipe.reviews.all().order_by("-created_on")
+    reviews_count = recipe.reviews.count()
+
     # Split igredients items in order to itterate through them in the recipe_detail.html template.
     ingredients = recipe.ingredients.split('</p>')
 
@@ -40,5 +42,10 @@ def recipe_detail(request, slug):
     return render(
         request,
         'recipes/recipe_detail.html',
-        {'recipe': recipe, 'ingredients': ingredients, 'review_form': review_form, 'reviews': reviews}
+        {'recipe': recipe,
+         'ingredients': ingredients,
+         'review_form': review_form, 
+         'reviews': reviews,
+         'reviews_count': reviews_count,
+        },
     )

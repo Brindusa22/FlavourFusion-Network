@@ -136,7 +136,7 @@ body {
     font-size: 18px;    
 }
 
-.breadcrumb-item a:hover{
+.breadcrumb-item a, .reviews-link:hover{
     color: #6d88a7;
 }
 
@@ -160,7 +160,7 @@ body {
 }
 
 .recipe-image {
-    margin-bottom: 2.5rem;
+    margin-bottom: 5.5rem;
 }
 
 .card-text {
@@ -172,9 +172,25 @@ body {
     padding: 5px;
 }
 
+.recipe-display {
+    position: relative;
+}
+
+#recipe-card-img {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: -3%;
+    left: 36%;
+    border: 5px solid #c7460b;
+    border-radius: 50%;
+}
+
+
 .card-body h2 {
     font-size: 40px;
     padding: 35px;
+    margin-top: 65px;
 }
 
 .card-body h4 {
@@ -223,16 +239,42 @@ body {
     text-align: center;
 }
 
-/* Reviews section */
+/* Styles for reviews section */
 
-.review-header {
+.reviews-link {
+    color: #9E9E9E;
+    font-size: 20px;
+}
+
+.internal-nav {
     display: flex;
     justify-content: space-between;
 }
 
-.rating-style {
-    display: flex;
+.internal-nav button:hover {
+    background-color: #6d88a7;
+    color: #fff;
 }
+
+.reviews-header {
+    display: flex;
+    align-items: center;
+}
+
+.reviews-header i {
+    font-size: 28px;
+}
+
+.review-form-header {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.review-date {
+    font-size: 12px;
+}
+
 
 /* Styles for recipe page */
 .recipe-list-title {
@@ -247,6 +289,8 @@ body {
 .author-small {
     font-size: 15px;
 }
+
+
 
 /* Styles for Registration pages */
 
