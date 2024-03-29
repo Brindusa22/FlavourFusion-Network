@@ -151,6 +151,7 @@ body {
 
 #recipe-detail-card  {
     background-color: cornsilk;
+    margin-bottom: 8px;
 }
 
 .recipe-description p {
@@ -220,6 +221,17 @@ body {
 
 .centered-text {
     text-align: center;
+}
+
+/* Reviews section */
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rating-style {
+    display: flex;
 }
 
 /* Styles for recipe page */

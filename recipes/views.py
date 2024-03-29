@@ -19,25 +19,26 @@ def recipe_detail(request, slug):
 
     queryset = Recipe.objects.filter(status=1)
     recipe = get_object_or_404(queryset, slug=slug)
-    review = recipe.reviews.all().order_by("-created_on")
+    reviews = recipe.reviews.all().order_by("-created_on")
     # Split igredients items in order to itterate through them in the recipe_detail.html template.
     ingredients = recipe.ingredients.split('</p>')
 
 
     if request.method == 'POST':
-        review_form = ReviewForm(request.POST)
+        review_form = ReviewForm(data=request.POST)
         if review_form.is_valid():
          
             review = review_form.save(commit=False)
             review.recipe = recipe
             review.author = request.user
+            
             review.save()
 
-    else:
-        review_form = ReviewForm()
+    
+    review_form = ReviewForm()
    
     return render(
         request,
         'recipes/recipe_detail.html',
-        {'recipe': recipe, 'ingredients': ingredients, 'review_form': review_form, 'review': review}
+        {'recipe': recipe, 'ingredients': ingredients, 'review_form': review_form, 'reviews': reviews}
     )
