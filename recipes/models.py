@@ -50,7 +50,7 @@ class Recipe(models.Model):
 class RecipeRating(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="reviews")
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
-    comment = models.TextField(blank=True, null=True)
+    comment = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
