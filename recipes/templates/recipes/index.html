@@ -7,7 +7,15 @@
 <!-- index.html content starts here -->
 <div class="container-fluid">
     <div class="row">
-
+        <div class="col-12 d-flex justify-content-center"><h2>Recipes</h2></div>
+        <div class="row">
+            <div class="col-12">Search by:</div>
+            <div class="col-3"><button>Top Rated</button></div>
+            <div class="col-3"><button>Meal Type</button></div>
+            <div class="col-3"><button>Cuisine</button></div>
+            <div class="col-3"><button>Author</button></div>
+        </div>
+        <div class="col-12 mt-3 d-flex justify-content-center"><h3 class="all-recipes-title"><i class="fa-solid fa-book-open"></i> &nbsp; All Recipes</h3></div>
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% if object_list %}

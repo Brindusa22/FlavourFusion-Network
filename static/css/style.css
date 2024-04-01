@@ -311,6 +311,10 @@ body {
     font-size: 15px;
 }
 
+.all-recipes-title {
+    color: #9E9E9E;
+}
+
 /* Styles for Registration pages */
 
 .red-title, .user-name {
