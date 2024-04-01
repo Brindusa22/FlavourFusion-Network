@@ -136,7 +136,7 @@ body {
     font-size: 18px;    
 }
 
-.breadcrumb-item a, .reviews-link:hover{
+.breadcrumb-item a:hover, .reviews-link:hover{
     color: #6d88a7;
 }
 
