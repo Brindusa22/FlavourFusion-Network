@@ -29,7 +29,7 @@
                             <a href="{% url 'dessert_list' %}">{{ recipe.get_meal_type_display }}</a>
                             {% endif %}
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">{{ recipe.title}}</li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ recipe.title }}</li>
                         </ol>
                     </nav>
                 </div>
@@ -50,7 +50,7 @@
                             &nbsp; Reviews: {{ reviews_count }} &nbsp;
                         </a>
                         <a href="#recipe">
-                            <button>Go to recipe</button>
+                            <button>Go to recipe &darr;</button>
                         </a>
                     </div>
                 </div>

@@ -113,3 +113,14 @@ def search_form(request):
         'home/home_page.html',
         {'search_form' : search_form, 'query' : search_query, 'posts': posts}
         )
+
+
+class CuisineList(generic.ListView):
+
+    model = Recipe
+    template_name = 'home.html'
+    cuisines = Recipe.objects.values_list('cuisine', flat=True).distinct()
+    print(cuisines)
+    
+
+   
