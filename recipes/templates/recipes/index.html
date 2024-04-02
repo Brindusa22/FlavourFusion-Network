@@ -5,75 +5,82 @@
 {% block content %}
 
 <!-- index.html content starts here -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 d-flex justify-content-center"><h2>Recipes</h2></div>
-        <div class="row">
-            <div class="col-12">Search by:</div>
-            <div class="col-3"><a href="#by-cuisine"><button>Cuisine &darr;</button></div></a>
-            <div class="col-3"><a href="#by-mealtype"><button>Meal Type &darr;</button></div></a>
-            <div class="col-3"><a href="#by-author"><button>Author &darr;</button></div></a>
-            <div class="col-3"><a href="#all-recipes"><button>View all Recipes &darr;</button></div></a>
+<div class="container-fluid categories-wrapper">
+    <div class="row justify-content-center">
+        <div class="col-12 mb-5 mt-3 d-flex justify-content-center"><h2 id="big-title">Recipes</h2></div>
+        <div class="row mb-3">
+            <div class="col-12 search-by-label">Search By:</div>
+            <div class="row mt-2 justify-content-between">
+                <div class="col-auto"><a href="#by-cuisine"><button class="category-btn">Cuisine &darr;</button></div></a>
+                <div class="col-auto"><a href="#by-mealtype"><button class="category-btn">Meal Type &darr;</button></div></a>
+                <div class="col-auto"><a href="#by-author"><button class="category-btn">Author &darr;</button></div></a>
+                <div class="col-auto"><a href="#all-recipes"><button class="category-btn">View all Recipes &darr;</button></div></a>
+            </div>
         </div>
-        <div class="row">
+        <div class="text-success">
+            <hr>
+        </div>
+        <div class="row mt-5">
             <!-- sort by Cuisine category -->
-            <div class="col-12">
-                <h3 id="by-cuisine"><i class="fa-solid fa-flag"></i>By Cuisine</h3>
+            <div class="col-12 mb-5">
+                <h3 id="by-cuisine"><i class="fa-solid fa-flag"></i>&nbsp; By Cuisine</h3>
             </div>
             {% for cuisine in cuisines %}
-            <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="meal-type-item">
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
+                <div class="meal-type-item item-wrapper">
                     <a href="{% url 'cuisine_list' cuisine=cuisine %}">
                         <div class="meal-img-wrap">
                             <img src="{% static 'images/default.webp' %}" class="order-by-img" alt="american">
                         </div>
-                        <p class="cathegory-label">{{ cuisine }} Recipes</p>
+                        <p class="cathegory-label small-label">{{ cuisine }} Recipes</p>
                     </a>
                 </div>
             </div>
             {% endfor %}
 
             <!-- sort by meal type category -->
-            <div class="col-12">
-                <h3 id="by-mealtype"><i class="fa-solid fa-bowl-food"></i>By Meal Type</h3>
+            <div class="col-12 mt-5 mb-5">
+                <h3 id="by-mealtype"><i class="fa-solid fa-bowl-food"></i>&nbsp; By Meal Type</h3>
             </div>
             {% for mealtype in mealtypes %}
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="meal-type-item">
+                <div class="meal-type-item item-wrapper">
                     <a href="{% url 'meal_type_list' mealtype %}">
                         <div class="meal-img-wrap">
                             <img src="{% static 'images/' %}{{ mealtype }}.png" class="order-by-img" alt="{{ mealtype }}">
                         </div>
-                        <p class="cathegory-label">{{ mealtype | capfirst }}</p>
+                        <p class="cathegory-label small-label">{{ mealtype | capfirst }}</p>
                     </a>
                 </div>
             </div>
             {% endfor %}
         
             <!-- sort by author category -->
-            <div class="col-12">
-                <h3 id="by-author"><i class="fa-solid fa-user"></i>By Author</h3>
+            <div class="col-12 mt-5 mb-5">
+                <h3 id="by-author"><i class="fa-solid fa-user"></i>&nbsp; By Author</h3>
             </div>
             {% for author in authors %}
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="meal-type-item">
+                <div class="meal-type-item item-wrapper">
                     <a href="{% url 'author_list' author %}">
                         <div class="meal-img-wrap">
                             <img src="{% static 'images/default.webp' %}" class="order-by-img" alt="Asian">
                         </div>
-                        <p class="cathegory-label">{{ author.username | capfirst }}</p>
+                        <p class="cathegory-label small-label">{{ author.username | capfirst }}</p>
                     </a>
                 </div>
             </div>
             {% endfor %}
         </div>
         <!-- view all recipes -->
-        <div class="col-12 mt-3 d-flex justify-content-center" id="all-recipes"><h3 class="all-recipes-title"><i class="fa-solid fa-book-open"></i> &nbsp; All Recipes</h3></div>
+        <div class="col-12 mt-5 mb-5">
+            <h3 class="all-recipes-title" id="all-recipes"><i class="fa-solid fa-book-open"></i> &nbsp; All Recipes</h3>
+        </div>
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% if object_list %}
                     {% for recipe in object_list %}
-                    <div class="col-md-4">
+                    <div class="col-lg-6">
                         <div class="card mb-4" h-100>
                             <div class="card-content">
                                 <div class="image-container">
@@ -113,17 +120,17 @@
 
         </div>
 
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {%  if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}#all-recipes" class="page-link"> &laquo; PREV</a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}#all-recipes" class="page-link"> NEXT &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
+        {% if is_paginated %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {%  if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}#all-recipes" class="page-link"> &laquo; PREV</a></li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}#all-recipes" class="page-link"> NEXT &raquo;</a></li>
+                {% endif %}
+            </ul>
+        </nav>
 
     {% endif %}
  
