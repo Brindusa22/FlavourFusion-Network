@@ -52,6 +52,19 @@ def cuisine_list(request, cuisine):
     )
 
 
+def meal_type_list(request, meal_type):
+    """
+    Display only the recipes that have a certain meal_type, ordered alphabetically by title.
+    """
+   
+    recipes = Recipe.objects.filter(meal_type=meal_type).order_by('title')
+   
+    return render(
+        request,
+        'recipes/cuisine_list.html',
+        {'recipes': recipes}
+    )   
+
 
 def recipe_detail(request, slug):
     """

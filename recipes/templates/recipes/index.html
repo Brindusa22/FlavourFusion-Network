@@ -40,7 +40,7 @@
             {% for mealtype in mealtypes %}
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="meal-type-item">
-                    <a href="#">
+                    <a href="{% url 'meal_type_list' mealtype %}">
                         <div class="meal-img-wrap">
                             <img src="{% static 'images/' %}{{ mealtype }}.png" class="order-by-img" alt="{{ mealtype }}">
                         </div>
