@@ -120,7 +120,5 @@ class CuisineList(generic.ListView):
     model = Recipe
     template_name = 'home.html'
     cuisines = Recipe.objects.values_list('cuisine', flat=True).distinct()
-    print(cuisines)
-    
 
    

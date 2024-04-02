@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
-from django.contrib.contenttypes.fields import GenericRelation
-from star_ratings.models import Rating
 
 MEAL_TYPE = [('breakfast', 'Breakfast'),
             ('appetizer', 'Appetizer'),

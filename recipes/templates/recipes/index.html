@@ -11,10 +11,63 @@
         <div class="row">
             <div class="col-12">Search by:</div>
             <div class="col-3"><button>Top Rated</button></div>
-            <div class="col-3"><button>Meal Type</button></div>
-            <div class="col-3"><button>Cuisine</button></div>
-            <div class="col-3"><button>Author</button></div>
+            <div class="col-3"><a href="#by-cuisine"><button>Cuisine</button></div></a>
+            <div class="col-3"><a href="#by-mealtype"><button>Meal Type</button></div></a>
+            <div class="col-3"><a href="#by-author"><button>Author</button></div></a>
         </div>
+        <div class="row">
+            <!-- sort by Cuisine category -->
+            <div class="col-12">
+                <h3 id="by-cuisine"><i class="fa-solid fa-flag"></i>By Cuisine</h3>
+            </div>
+            {% for cuisine in cuisines %}
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="meal-type-item">
+                    <a href="#">
+                        <div class="meal-img-wrap">
+                            <img src="{% static 'images/default.webp' %}" class="order-by-img" alt="american">
+                        </div>
+                        <p class="cathegory-label">{{ cuisine }} Recipes</p>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+
+            <!-- sort by meal type category -->
+            <div class="col-12">
+                <h3 id="by-mealtype"><i class="fa-solid fa-bowl-food"></i>By Meal Type</h3>
+            </div>
+            {% for mealtype in mealtypes %}
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="meal-type-item">
+                    <a href="#">
+                        <div class="meal-img-wrap">
+                            <img src="{% static 'images/' %}{{ mealtype }}.png" class="order-by-img" alt="{{ mealtype }}">
+                        </div>
+                        <p class="cathegory-label">{{ mealtype }}</p>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        
+            <!-- sort by author category -->
+            <div class="col-12">
+                <h3 id="by-author"><i class="fa-solid fa-user"></i>By Author</h3>
+            </div>
+            {% for author in authors %}
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="meal-type-item">
+                    <a href="#">
+                        <div class="meal-img-wrap">
+                            <img src="{% static 'images/default.webp' %}" class="order-by-img" alt="Asian">
+                        </div>
+                        <p class="cathegory-label">{{ author.username }}</p>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
         <div class="col-12 mt-3 d-flex justify-content-center"><h3 class="all-recipes-title"><i class="fa-solid fa-book-open"></i> &nbsp; All Recipes</h3></div>
         <div class="col-12 mt-3 left">
             <div class="row">
@@ -58,7 +111,7 @@
                 
             </div>
         </div>
-    </div>
+    
 
     {% if is_paginated %}
     <nav aria-label="Page navigation">
@@ -75,6 +128,6 @@
     {% endif %}
 
 </div>
-
+</div>
 
 {% endblock %}

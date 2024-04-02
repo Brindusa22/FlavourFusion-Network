@@ -315,6 +315,13 @@ body {
     color: #9E9E9E;
 }
 
+.order-by-img {
+    width: 150px;
+    height: 150px;
+    border: 5px solid #c7460b;
+    border-radius: 50%;
+}
+
 /* Styles for Registration pages */
 
 .red-title, .user-name {
