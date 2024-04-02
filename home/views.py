@@ -25,10 +25,10 @@ class BreakfastList(generic.ListView):
     """
 
     model = Recipe
-    template_name = "recipes/index.html"
+    template_name = "recipes/recipes_list.html"
     queryset = Recipe.objects.filter(status=1, meal_type='breakfast').order_by('title')
     paginate_by = 6 
-   
+    context_object_name= 'recipes'
 
 class MainCourseList(generic.ListView):
     """
@@ -37,10 +37,10 @@ class MainCourseList(generic.ListView):
     Ordres the rendered recipes alphabetically.
     """
     model = Recipe
-    template_name = "recipes/index.html"
+    template_name = "recipes/recipes_list.html"
     queryset = Recipe.objects.filter(status=1, meal_type='main_course').order_by('title')
     paginate_by = 6 
-   
+    context_object_name= 'recipes'
 
 class SoupList(generic.ListView):
     """
@@ -49,9 +49,10 @@ class SoupList(generic.ListView):
     Ordres the rendered recipes alphabetically.
     """
     model = Recipe
-    template_name = "recipes/index.html"
+    template_name = "recipes/recipes_list.html"
     queryset = Recipe.objects.filter(status=1, meal_type='soup').order_by('title')
-    paginate_by = 6 
+    paginate_by = 6
+    context_object_name= 'recipes' 
 
 
 class AppetizerList(generic.ListView):
@@ -61,10 +62,10 @@ class AppetizerList(generic.ListView):
     Ordres the rendered recipes alphabetically.
     """
     model = Recipe
-    template_name = "recipes/index.html"
+    template_name = "recipes/recipes_list.html"
     queryset = Recipe.objects.filter(status=1, meal_type='appetizer').order_by('title')
     paginate_by = 6 
-
+    context_object_name= 'recipes'
 
 class SidesList(generic.ListView):
     """
@@ -73,10 +74,10 @@ class SidesList(generic.ListView):
     Ordres the rendered recipes alphabetically.
     """
     model = Recipe
-    template_name = "recipes/index.html"
+    template_name = "recipes/recipes_list.html"
     queryset = Recipe.objects.filter(status=1, meal_type='sides').order_by('title')
     paginate_by = 6 
-
+    context_object_name= 'recipes'
 
 class DessertList(generic.ListView):
     """
@@ -85,10 +86,10 @@ class DessertList(generic.ListView):
     Ordres the rendered recipes alphabetically.
     """
     model = Recipe
-    template_name = "recipes/index.html"
+    template_name = "recipes/recipes_list.html"
     queryset = Recipe.objects.filter(status=1, meal_type='dessert').order_by('title')
     paginate_by = 6 
-
+    context_object_name= 'recipes'
 
 def search_form(request):
     """
