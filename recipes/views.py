@@ -47,7 +47,7 @@ def cuisine_list(request, cuisine):
  
     return render(
         request,
-        'recipes/cuisine_list.html',
+        'recipes/recipes_list.html',
         {'recipes': recipes}
     )
 
@@ -61,7 +61,7 @@ def meal_type_list(request, meal_type):
    
     return render(
         request,
-        'recipes/cuisine_list.html',
+        'recipes/recipes_list.html',
         {'recipes': recipes}
     )   
 
