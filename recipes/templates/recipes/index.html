@@ -44,7 +44,7 @@
                         <div class="meal-img-wrap">
                             <img src="{% static 'images/' %}{{ mealtype }}.png" class="order-by-img" alt="{{ mealtype }}">
                         </div>
-                        <p class="cathegory-label">{{ mealtype }}</p>
+                        <p class="cathegory-label">{{ mealtype | capfirst }}</p>
                     </a>
                 </div>
             </div>
@@ -61,7 +61,7 @@
                         <div class="meal-img-wrap">
                             <img src="{% static 'images/default.webp' %}" class="order-by-img" alt="Asian">
                         </div>
-                        <p class="cathegory-label">{{ author.username }}</p>
+                        <p class="cathegory-label">{{ author.username | capfirst }}</p>
                     </a>
                 </div>
             </div>
