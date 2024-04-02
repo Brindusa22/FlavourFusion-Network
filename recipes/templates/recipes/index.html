@@ -57,7 +57,7 @@
             {% for author in authors %}
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="meal-type-item">
-                    <a href="#">
+                    <a href="{% url 'author_list' author %}">
                         <div class="meal-img-wrap">
                             <img src="{% static 'images/default.webp' %}" class="order-by-img" alt="Asian">
                         </div>

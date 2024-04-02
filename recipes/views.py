@@ -63,7 +63,23 @@ def meal_type_list(request, meal_type):
         request,
         'recipes/recipes_list.html',
         {'recipes': recipes}
-    )   
+    )
+
+
+def author_list(request, username):
+    """
+    Display only the recipes that have a certain author, ordered alphabetically by title.
+    """
+
+    author=get_object_or_404(User, username=username)
+    recipes = Recipe.objects.filter(author=author).order_by('title')
+   
+    return render(
+        request,
+        'recipes/recipes_list.html',
+        {'recipes': recipes,
+         'author': author }
+    )      
 
 
 def recipe_detail(request, slug):
