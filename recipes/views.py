@@ -7,7 +7,7 @@ from .forms import ReviewForm
 
 # Create your views here.
 class RecipeList(generic.ListView):
-    queryset = Recipe.objects.filter(status = 1)
+    queryset = Recipe.objects.filter(status = 1).order_by('title')
     template_name = "recipes/index.html"
     paginate_by = 6
 

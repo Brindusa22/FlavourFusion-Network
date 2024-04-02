@@ -10,10 +10,10 @@
         <div class="col-12 d-flex justify-content-center"><h2>Recipes</h2></div>
         <div class="row">
             <div class="col-12">Search by:</div>
-            <div class="col-3"><button>Top Rated</button></div>
-            <div class="col-3"><a href="#by-cuisine"><button>Cuisine</button></div></a>
-            <div class="col-3"><a href="#by-mealtype"><button>Meal Type</button></div></a>
-            <div class="col-3"><a href="#by-author"><button>Author</button></div></a>
+            <div class="col-3"><a href="#by-cuisine"><button>Cuisine &darr;</button></div></a>
+            <div class="col-3"><a href="#by-mealtype"><button>Meal Type &darr;</button></div></a>
+            <div class="col-3"><a href="#by-author"><button>Author &darr;</button></div></a>
+            <div class="col-3"><a href="#all-recipes"><button>View all Recipes &darr;</button></div></a>
         </div>
         <div class="row">
             <!-- sort by Cuisine category -->
@@ -67,8 +67,8 @@
             </div>
             {% endfor %}
         </div>
-
-        <div class="col-12 mt-3 d-flex justify-content-center"><h3 class="all-recipes-title"><i class="fa-solid fa-book-open"></i> &nbsp; All Recipes</h3></div>
+        <!-- view all recipes -->
+        <div class="col-12 mt-3 d-flex justify-content-center" id="all-recipes"><h3 class="all-recipes-title"><i class="fa-solid fa-book-open"></i> &nbsp; All Recipes</h3></div>
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% if object_list %}
@@ -110,16 +110,17 @@
                 {% endif %}
                 
             </div>
+
         </div>
 
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             {%  if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link"> &laquo; PREV</a></li>
+            <li><a href="?page={{ page_obj.previous_page_number }}#all-recipes" class="page-link"> &laquo; PREV</a></li>
             {% endif %}
             {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            <li><a href="?page={{ page_obj.next_page_number }}#all-recipes" class="page-link"> NEXT &raquo;</a></li>
             {% endif %}
         </ul>
     </nav>
