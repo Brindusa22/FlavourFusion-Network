@@ -136,7 +136,7 @@ body {
     font-size: 18px;    
 }
 
-.breadcrumb-item a:hover{
+.breadcrumb-item a:hover, .reviews-link:hover{
     color: #6d88a7;
 }
 
@@ -151,6 +151,7 @@ body {
 
 #recipe-detail-card  {
     background-color: cornsilk;
+    margin-bottom: 8px;
 }
 
 .recipe-description p {
@@ -159,7 +160,7 @@ body {
 }
 
 .recipe-image {
-    margin-bottom: 2.5rem;
+    margin-bottom: 5.5rem;
 }
 
 .card-text {
@@ -171,9 +172,25 @@ body {
     padding: 5px;
 }
 
+.recipe-display {
+    position: relative;
+}
+
+#recipe-card-img {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: -3%;
+    left: 36%;
+    border: 5px solid #c7460b;
+    border-radius: 50%;
+}
+
+
 .card-body h2 {
     font-size: 40px;
     padding: 35px;
+    margin-top: 65px;
 }
 
 .card-body h4 {
@@ -222,10 +239,105 @@ body {
     text-align: center;
 }
 
+/* Styles for reviews section */
+
+.reviews-link {
+    color: #9E9E9E;
+    font-size: 20px;
+}
+
+.internal-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.internal-nav button:hover {
+    background-color: #6d88a7;
+    color: #fff;
+}
+
+.reviews-header {
+    display: flex;
+    align-items: center;
+}
+
+.reviews-header i {
+    font-size: 28px;
+    color: #c7460b;
+}
+
+.review-form-header {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.review-date {
+    font-size: 11px;
+}
+
+.review-form-info {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.rating-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.review-container {
+    background-color: rgb(236, 235, 235);
+    margin: 10px 0;
+    border-radius: 15px;
+    padding: 10px 25px;
+}
+
 /* Styles for recipe page */
+
+.categories-wrapper {
+    width: 50%;
+}
+
+#big-title{
+    font-size: 40px;
+}
+
+.search-by-label{
+    font-size: 20px;
+    margin-bottom: 15px;
+
+}
+
 .recipe-list-title {
     padding-top: 5px;
     font-size: 22px;
+}
+
+.jump-btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.category-btn{
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    color: #fff;
+    background-color: #c7460b;
+    border: none;
+    border-radius: 3px;
+}
+
+.category-btn:hover {
+    background-color: #6d88a7;
 }
 
 .card-content {
@@ -236,9 +348,32 @@ body {
     font-size: 15px;
 }
 
+.all-recipes-title {
+    color: #9E9E9E;
+}
+
+.order-by-img {
+    width: 150px;
+    height: 150px;
+    border: 5px solid #c7460b;
+    border-radius: 50%;
+}
+
+.small-label {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.item-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
 /* Styles for Registration pages */
 
-.red-title {
+.red-title, .user-name {
     color: #c7460b;
 }
 
@@ -258,18 +393,7 @@ body {
     color: #c7460b;
 }
 
-.user-name {
-    color: #c7460b;
-}
 
-
-/* Rating */
-
-/* .rating-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 
 
 
@@ -281,9 +405,9 @@ body {
     color: #c7460b;
 }
 
-.red-o {
+/* .red-o {
     color: #E84610;
-}
+} */
 
 .thin {
     font-weight: 300;
