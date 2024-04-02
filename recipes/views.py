@@ -37,6 +37,22 @@ class RecipeList(generic.ListView):
         return context
 
 
+def cuisine_list(request, cuisine):
+    """
+    Display only the recipes that have a certain cuisine.
+    """
+
+    model=Recipe
+    recipes = Recipe.objects.filter(cuisine=cuisine)
+ 
+    return render(
+        request,
+        'recipes/cuisine_list.html',
+        {'recipes': recipes}
+    )
+
+
+
 def recipe_detail(request, slug):
     """
     Display an individual recipe.

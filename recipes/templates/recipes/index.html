@@ -23,7 +23,7 @@
             {% for cuisine in cuisines %}
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="meal-type-item">
-                    <a href="#">
+                    <a href="{% url 'cuisine_list' cuisine=cuisine %}">
                         <div class="meal-img-wrap">
                             <img src="{% static 'images/default.webp' %}" class="order-by-img" alt="american">
                         </div>
@@ -111,7 +111,6 @@
                 
             </div>
         </div>
-    
 
     {% if is_paginated %}
     <nav aria-label="Page navigation">
@@ -126,7 +125,7 @@
     </nav>
 
     {% endif %}
-
+ 
 </div>
 </div>
 
