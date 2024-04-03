@@ -35,14 +35,14 @@
         <div class="row g-0 justify-content-center">
             <div class="col-lg-6 card-text recipe-description">
                 <!-- About page content -->
-                <p>{{ about.content }}</p>
+                <p>{{ about.content | safe }}</p>
             </div>
         </div>
-        <div class="row g-0 justify-content-end">
-            <div class="col text-right">
+        <div class="row g-0 justify-content-center">
+            <div class="col-lg-6 text-right">
               <!-- Updated on field goes in here -->
         
-              <p class="text-end"><em>Last Updated on: {{ about.date_updated }}</em></p>
+              <p><em>Last Updated on: {{ about.date_updated }}</em></p>
             </div>
           </div>
 
