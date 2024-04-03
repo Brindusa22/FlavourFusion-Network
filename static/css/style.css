@@ -136,8 +136,32 @@ body {
     font-size: 18px;    
 }
 
-.breadcrumb-item a:hover, .reviews-link:hover{
+.breadcrumb-item a:hover,
+.reviews-link:hover {
     color: #6d88a7;
+}
+
+.find-under {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 15px;
+}
+
+.find-under span {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.find-btn {
+    background-color: #c7460b;
+    color: #fff;
+    margin-left: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+.find-btn:hover {
+    background-color: #6d88a7;
 }
 
 .recipe-container{

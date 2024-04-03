@@ -39,8 +39,15 @@
                 <div class="col-lg-6">
                     <!-- Recipe title goes in these h1 tags -->
                     <h1 class="card-title">{{ recipe.title }}</h1>
+                    <!-- Recipe Tags -->
+                    <div class="find-under"><span>Find under:</span> 
+                        <a href="{% url 'cuisine_list' recipe.cuisine %}"><button class="find-btn">{{ recipe.cuisine }}</button></a>
+                        <a href="{% url 'meal_type_list' recipe.meal_type %}"><button class="find-btn">{{ recipe.get_meal_type_display }}</button></a>
+                        <a href="{% url 'author_list' recipe.author %}"><button class="find-btn">{{ recipe.author|title }}</button></a>
+                    </div>
                     <!-- Recipe author goes before | created date goes after -->
-                    <p>Author: {{ recipe.author }} | {{ recipe.created_on }}</p>
+                    <p>Author: {{ recipe.author|title }} | {{ recipe.created_on }}</p>
+                    <!-- Star Ratings Section -->
                     <div id="recipe-star-ratings">{% ratings recipe template_name="star_ratings/widget.html" %}</div>
 
                     <!-- Comments count and go-ot-recipe button -->
@@ -68,7 +75,7 @@
 
         <!-- Main Image -->
         <div class="row g-0 justify-content-center">
-            <div class="col-lg-6 sm-12 recipe-image">
+            <div class="col-lg-6 recipe-image">
                 <img src="{% static 'images/default.webp' %}" class="scale" alt="placeholder">
             </div>
         </div>

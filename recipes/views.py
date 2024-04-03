@@ -9,7 +9,7 @@ from .forms import ReviewForm
 class RecipeList(generic.ListView):
     queryset = Recipe.objects.filter(status = 1).order_by('title')
     template_name = "recipes/index.html"
-    paginate_by = 6
+    paginate_by = 8
 
 
     def get_context_data(self, **kwargs):
@@ -118,6 +118,6 @@ def recipe_detail(request, slug):
          'ingredients': ingredients,
          'review_form': review_form, 
          'reviews': reviews,
-         'reviews_count': reviews_count,
+         'reviews_count': reviews_count
         },
     )
