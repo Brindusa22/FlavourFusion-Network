@@ -7,7 +7,15 @@
 <!-- index.html content starts here -->
 <div class="container-fluid categories-wrapper">
     <div class="row justify-content-center">
-        <div class="col-12 mb-5 mt-3 d-flex justify-content-center"><h2 id="big-title">Recipes</h2></div>
+        <!-- Breadcrumbs Bootstrap -->
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">FlavourFusion Network</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Recipes</li>
+                
+            </ol>
+        </nav>
+        <div class="col-12 mb-4 mt-3"><h1 id="big-title">Recipes</h1></div>
         <div class="row mb-3">
             <div class="col-12 search-by-label">Search By:</div>
             <div class="row mt-2 justify-content-between">
@@ -17,10 +25,12 @@
                 <div class="col-auto"><a href="#all-recipes"><button class="category-btn">View all Recipes &darr;</button></div></a>
             </div>
         </div>
+    </div>
         <div class="text-success">
             <hr>
         </div>
-        <div class="row mt-5">
+    
+        <div class="row mt-5 justify-content-center">
             <!-- sort by Cuisine category -->
             <div class="col-12 mb-5">
                 <h3 id="by-cuisine"><i class="fa-solid fa-flag"></i>&nbsp; By Cuisine</h3>
