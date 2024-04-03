@@ -15,6 +15,19 @@ body {
     color: #9E9E9E;
 }
 
+.header-nav {
+    background-color: rgb(247, 238, 226, 0.7);
+
+}
+
+.nav-link  {
+    font-size: 20px;
+}
+
+.signin-msg {
+    margin-top: 90px;
+}
+
 .meal-type-item {
     width: 100%;
     max-width: 100%;
@@ -80,16 +93,16 @@ body {
 }
 
 #searchForm input:hover {
-    background-color: rgb(255, 252, 249);
+    background-color: rgb(236, 235, 235);
 }
 
-#submitButton {
+#submitButton, #submitBtn {
     margin-bottom: 1rem;
     background-color: #c7460b;
     color: white;  
 }
 
-#submitButton:hover {
+#submitButton:hover, #submitBtn:hover {
     background-color: rgb(255, 252, 249);
     color: #c7460b;
     border: 1.5px solid #c7460b;
@@ -136,8 +149,32 @@ body {
     font-size: 18px;    
 }
 
-.breadcrumb-item a:hover, .reviews-link:hover{
+.breadcrumb-item a:hover,
+.reviews-link:hover {
     color: #6d88a7;
+}
+
+.find-under {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 15px;
+}
+
+.find-under span {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.find-btn {
+    background-color: #c7460b;
+    color: #fff;
+    margin-left: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+.find-btn:hover {
+    background-color: #6d88a7;
 }
 
 .recipe-container{
@@ -304,7 +341,7 @@ body {
 }
 
 #big-title{
-    font-size: 40px;
+    font-size: 50px;
 }
 
 .search-by-label{
@@ -348,6 +385,10 @@ body {
     font-size: 15px;
 }
 
+.all-recipes-title {
+    color: #9E9E9E;
+}
+
 .order-by-img {
     width: 150px;
     height: 150px;
@@ -389,10 +430,32 @@ body {
     color: #c7460b;
 }
 
+/* Styles for About page */
 
+.form-title {
+    margin-bottom: 30px;
+}
 
+.form-description {
+    margin-bottom: 30px;
+}
 
+#id_email:hover, #id_name:hover, #id_message:hover {
+    background-color: rgb(236, 235, 235);
+}
 
+/* Style for footer */
+.dark-bg {
+    background-color: #a04518;
+}
+
+.footer a {
+    color: #fff;
+}
+
+.footer a:hover {
+    color: #6d88a7;
+}
 
 .brand {
     font-family: Lato, sans-serif;
@@ -401,9 +464,6 @@ body {
     color: #c7460b;
 }
 
-/* .red-o {
-    color: #E84610;
-} */
 
 .thin {
     font-weight: 300;
@@ -411,10 +471,6 @@ body {
 
 .light-bg {
     background-color: #fff;
-}
-
-.dark-bg {
-    background-color: #445261;
 }
 
 .main-bg {
@@ -542,6 +598,9 @@ body {
 @media only screen and (max-width: 576px) {
     .recipe-details {
         display: block;
+    }
+    .categories-wrapper {
+        width: 80%;
     }
 }
 
