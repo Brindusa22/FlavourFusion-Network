@@ -444,7 +444,18 @@ body {
     background-color: rgb(236, 235, 235);
 }
 
+/* Style for footer */
+.dark-bg {
+    background-color: #a04518;
+}
 
+.footer a {
+    color: #fff;
+}
+
+.footer a:hover {
+    color: #6d88a7;
+}
 
 .brand {
     font-family: Lato, sans-serif;
@@ -460,10 +471,6 @@ body {
 
 .light-bg {
     background-color: #fff;
-}
-
-.dark-bg {
-    background-color: #445261;
 }
 
 .main-bg {
