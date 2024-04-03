@@ -80,16 +80,16 @@ body {
 }
 
 #searchForm input:hover {
-    background-color: rgb(255, 252, 249);
+    background-color: rgb(236, 235, 235);
 }
 
-#submitButton {
+#submitButton, #submitBtn {
     margin-bottom: 1rem;
     background-color: #c7460b;
     color: white;  
 }
 
-#submitButton:hover {
+#submitButton:hover, #submitBtn:hover {
     background-color: rgb(255, 252, 249);
     color: #c7460b;
     border: 1.5px solid #c7460b;
@@ -393,8 +393,19 @@ body {
     color: #c7460b;
 }
 
+/* Styles for About page */
 
+.form-title {
+    margin-bottom: 30px;
+}
 
+.form-description {
+    margin-bottom: 30px;
+}
+
+#id_email:hover, #id_name:hover, #id_message:hover {
+    background-color: rgb(236, 235, 235);
+}
 
 
 
@@ -405,9 +416,6 @@ body {
     color: #c7460b;
 }
 
-/* .red-o {
-    color: #E84610;
-} */
 
 .thin {
     font-weight: 300;

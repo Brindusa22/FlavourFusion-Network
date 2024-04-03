@@ -15,3 +15,6 @@ class AboutAdmin(SummernoteModelAdmin):
 class RecipePostRequest(admin.ModelAdmin):
 
     list_display = ('name', 'message', 'read')
+   
+
+  
