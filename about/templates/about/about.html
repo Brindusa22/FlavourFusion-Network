@@ -21,8 +21,15 @@
 
             <div class="row g-0 justify-content-center">
                 <div class="col-lg-6">
+                    <div class="about-header">
                     <!-- Page title goes in these h1 tags -->
                     <h1 class="card-title">About</h1>
+                    {% if "placeholder" in recipe.recipe_image.url %}
+                    <img src="{% static 'images/default.webp' %}" class="profile-img" width="100%" alt="placeholder image">
+                    {% else %}
+                    <img class="profile-img" src="{{ about.profile_image.url }}" width="100%" alt="{{ about.name }}">
+                    {% endif %}
+                    </div>
                     <!-- About author goes before | created date goes after -->
                     <p>Author: {{ about.name }} | created on: {{ about.date_created }}</p>
                 </div>
@@ -45,8 +52,10 @@
                 <p>{{ about.content | safe }}</p>
             </div>
         </div>
+
         <div class="row g-0 justify-content-center">
             <div class="col-lg-6 text-right">
+
               <!-- Updated on field goes in here -->
         
               <p><em>Last Updated on: {{ about.date_updated }}</em></p>
@@ -56,16 +65,15 @@
         <!-- Main Image -->
         <div class="row g-0 justify-content-center">
             <div class="col-lg-6 sm-12 recipe-image">
-                {% if 'placeholder' in about.profile_image.url %}
-                <img src="{% static 'images/default_user.jpg' %}" alt="placeholder image">
-                {% else %}
-                <img src="{{ about.profile_image.url }}" class="rounded" width="100%" alt="{{ about.name }}">
-                {% endif %}
+                
+                <img src="{% static 'images/default_user.jpg' %}" class="rounded" width="95%" alt="placeholder image">
+              
+               
             </div>
         </div>
 
         <!-- recipe post request form -->
-        <div class="row g-0 mt-3 mb-5 justify-content-center">
+        <div class="row g-0 mt-1 mb-5 justify-content-center">
             <div class="col-lg-6 sm-12 text-right">
                 <h2 id="contact-us" class="form-title">Let's add more flaovours to our virtual international kitchen!</h2>
                 <p class="form-description">Join us! If you have a recipe that you are fond of and you want to share it with us allowing users aorund 

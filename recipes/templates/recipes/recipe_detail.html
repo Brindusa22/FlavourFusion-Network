@@ -91,11 +91,11 @@
                     <div class="card-body recipe-display" id="recipe">
                         <div class="small-img-container">
                             {% if "placeholder" in recipe.recipe_image.url %}
-                            <img src="{% static 'images/default.webp' %}" class="recipe-card-img" alt="placeholder"></div>
+                            <img src="{% static 'images/default.webp' %}" class="recipe-card-img" alt="placeholder">
                             {% else %}
                             <img class="card-img-top recipe-card-img" src="{{ recipe.recipe_image.url }}" width="100%" alt="{{ recipe.title }}"></a>
                             {% endif %}
-                           
+                        </div>   
             
                         <div class="card-header">
                             <h2 class="centered-text">{{ recipe.title }}</h2>
