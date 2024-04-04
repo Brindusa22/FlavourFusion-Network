@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 from django.utils.text import slugify
 
 MEAL_TYPE = [('breakfast', 'Breakfast'),
@@ -27,6 +28,7 @@ class Recipe(models.Model):
     servings = models.PositiveIntegerField()
     ingredients = models.TextField()
     instructions = models.TextField()
+    recipe_image = CloudinaryField('image', default="placeholder")
     meal_type = models.CharField(max_length=30, choices = MEAL_TYPE)
     cuisine = models.CharField(max_length = 50)
     created_on = models.DateTimeField(auto_now_add=True)

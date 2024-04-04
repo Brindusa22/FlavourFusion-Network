@@ -102,10 +102,8 @@ def search_form(request):
 
     if request.method == 'POST':
         if search_form.is_valid():
-            print("Received a POST request")
             search_query = request.POST['query']
             posts = Recipe.objects.filter(title__icontains=search_query)
-            print(posts)
 
     search_form =SearchForm()
     

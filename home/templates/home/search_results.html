@@ -7,16 +7,21 @@
       <a href="{% url 'recipe_detail' post.slug %}" class="post-link">
       <div class="row g-0 h-100">        
         <div class="col-4 h-100 image-container">
+          {% if "placeholder" in recipe.recipe_image.url %}
           <img class="img-fluid rounded-start h-100" src="{% static 'images/default.webp' %}" alt="placeholder">
+          {% else %}
+          <img class="card-img-top" src="{{ post.recipe_image.url }}" width="50%"
+          alt="{{ post.title }}"></a>
+          {% endif %}
           <div class="image-flash">
             <p class="author">By: {{ post.author }}</p>
           </div>
         </div>
         <div class="col-8 h-100">
           <div class="card-body mt-3 h-100 d-flex flex-column justify-content-between align-items-center">
-            <h5 class="">{{ post.title }}</h5>
+            <h5>{{ post.title }}</h5>
   
-            <p class=""><small class="text-body-secondary">Published on: {{ post.created_on}}
+            <p><small class="text-body-secondary">Published on: {{ post.created_on}}
             </p></small></p>
           </div>
         </div>   

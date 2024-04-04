@@ -12,8 +12,13 @@
                 <div class="card-content">
                     <div class="image-container">
                         <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
+                            {% if "placeholder" in recipe.recipe_image.url %}
                             <img class="card-img-top" src="{% static 'images/default.webp' %}"
                                 alt="placeholder"></a>
+                            {% else %}
+                            <img class="card-img-top" src="{{ recipe.recipe_image.url }}" width="100%"
+                                            alt="{{ recipe.title }}"></a>
+                            {% endif %}
                         <div class="image-flash">
                             <p class="author">Author: {{ recipe.author }}</p>
                         </div>
