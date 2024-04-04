@@ -446,6 +446,10 @@ body {
     color: #c7460b;
 }
 
+.register-container {
+    padding-bottom: 3rem;
+}
+
 /* Styles for About page */
 
 .form-title {
