@@ -446,7 +446,24 @@ body {
     color: #c7460b;
 }
 
+.register-container {
+    padding-bottom: 3rem;
+}
+
 /* Styles for About page */
+
+.about-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-img {
+
+    width: 130px;
+    height: 130px;
+    border: 5px solid #c7460b;
+    border-radius: 50%;
+}
 
 .form-title {
     margin-bottom: 30px;
