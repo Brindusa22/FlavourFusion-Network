@@ -143,6 +143,18 @@ body {
     color: #9E9E9E;
 }
 
+#clearBtn {
+    border: 1px solid #9E9E9E;
+    border-radius: 3PX;
+    color: #9E9E9E;
+    padding: 3px 12px;
+}
+
+#clearBtn:hover {
+    opacity: 0.6;
+}
+
+
 /* Styles for recipe_detail page */
 .breadcrumb-item a, .breadcrumb-item.active {
     color: #9E9E9E;
@@ -213,14 +225,18 @@ body {
     position: relative;
 }
 
-#recipe-card-img {
+.recipe-card-img {
     position: absolute;
     width: 150px;
     height: 150px;
-    top: -3%;
+    top: -2%;
     left: 36%;
     border: 5px solid #c7460b;
     border-radius: 50%;
+}
+
+.rounded {
+    border-radius: 5px;
 }
 
 
