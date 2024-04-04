@@ -98,10 +98,12 @@
                         <div class="container mt-4">
                             <hr id="search-hr">
                             <div class="form-label">Search a recipe</div>
-                            <form id="searchForm" method="post" action="{% url 'search_form' %}">
+                            <form id="searchForm" method="post" action="{% url 'search_form' %}#results-area">
                                 {{ search_form | crispy }}
                                 {% csrf_token %}
-                                <button id="submitButton" type="submit" class="btn btn-signup btn-lg"> <i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button id="submitButton" type="submit" class="btn btn-signup btn-lg"> <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                                
                             </form>
                         </div>
                     </div>
@@ -110,17 +112,20 @@
                 <div class="row">
                     <div class="col">
                         {% if query %}
+                        <div id="results-area">
                             {% if posts %}
                            
                             <h2 id="results-title">Results for "{{ query }}" :</h2>
 
+                            
                             <!-- Inject html from search_results.html template -->
 
                             {% include 'home/search_results.html' %}
                             
                         {% else %}
-                            <h5 id="no-result-msg">No results for "{{ query }}" found.</h3>
-                        {% endif %}  
+                            <h5 id="no-result-msg">No results for "{{ query }}" found.</h5>
+                        {% endif %}
+                        </div>  
                         {% endif %}
                     </div>
                 </div> 

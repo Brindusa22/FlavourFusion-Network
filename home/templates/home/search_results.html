@@ -1,6 +1,12 @@
 {% load static %}
 
 <div class="container search-wrapper">
+  <!-- hide results button -->
+  <div class="row"> 
+    <div class="col d-flex">
+        <button type="clear" class="btn btn-lg" id="clearBtn"> x </button>
+    </div>
+</div>
 <div class="row">
   {% for post in posts %}
     <div class="container-search-results" style="max-width: 540px;">
@@ -36,3 +42,10 @@
 {% endfor %}
 </div>
 </div>
+
+<!-- handle the close button for the search results area to toggle off the results -->
+<script>
+  document.getElementById("clearBtn").addEventListener("click", function() {
+          document.getElementById("results-area").innerHTML = "";
+  })
+</script>
