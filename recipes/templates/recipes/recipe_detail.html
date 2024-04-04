@@ -77,11 +77,9 @@
         <div class="row g-0 justify-content-center">
             <div class="col-lg-6 recipe-image">
                 {% if "placeholder" in recipe.recipe_image.url %}
-                <img src="{% static 'images/default.webp' %}" class="scale" alt="placeholder">
-                {% else%}
-                <img class="card-img-top" src="{{ recipe.recipe_image.url }}" width="100%"
-                                alt="{{ recipe.title }}"></a>
-                    alt="{{ recipe.title }}"></a>
+                <img src="{% static 'images/default.webp' %}" class="scale" width="100%" alt="placeholder">
+                {% else %}
+                <img class="card-img-top rounded" src="{{ recipe.recipe_image.url }}" width="100%" alt="{{ recipe.title }}"></a>
                 {% endif %}
             </div>
         </div>
@@ -89,10 +87,16 @@
 
         <div class="container">
             <div class="row g-0 justify-content-center">
-                <div class="col-lg-6 card" id="recipe-detail-card">
+                <div class="col-lg-6 card" id="recipe-detail-card">              
                     <div class="card-body recipe-display" id="recipe">
                         <div class="small-img-container">
-                            <img src="{% static 'images/default.webp' %}" id="recipe-card-img" alt="placeholder"></div>
+                            {% if "placeholder" in recipe.recipe_image.url %}
+                            <img src="{% static 'images/default.webp' %}" class="recipe-card-img" alt="placeholder"></div>
+                            {% else %}
+                            <img class="card-img-top recipe-card-img" src="{{ recipe.recipe_image.url }}" width="100%" alt="{{ recipe.title }}"></a>
+                            {% endif %}
+                           
+            
                         <div class="card-header">
                             <h2 class="centered-text">{{ recipe.title }}</h2>
                             <div class="rating-info">

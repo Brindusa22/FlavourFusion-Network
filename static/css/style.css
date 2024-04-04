@@ -225,14 +225,18 @@ body {
     position: relative;
 }
 
-#recipe-card-img {
+.recipe-card-img {
     position: absolute;
     width: 150px;
     height: 150px;
-    top: -3%;
+    top: -2%;
     left: 36%;
     border: 5px solid #c7460b;
     border-radius: 50%;
+}
+
+.rounded {
+    border-radius: 5px;
 }
 
 
