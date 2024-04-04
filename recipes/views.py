@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.contrib.auth.models import User
 from .models import Recipe, RecipeRating
+from about.models import About
 from .forms import ReviewForm
 
 

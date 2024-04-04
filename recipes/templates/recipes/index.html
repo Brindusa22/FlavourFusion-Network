@@ -40,7 +40,7 @@
                 <div class="meal-type-item item-wrapper">
                     <a href="{% url 'cuisine_list' cuisine=cuisine %}">
                         <div class="meal-img-wrap">
-                            <img src="{% static 'images/default.webp' %}" class="order-by-img" alt="american">
+                            <img src="{% static 'images/' %}{{ cuisine|lower }}.png" class="order-by-img" width="50%" alt="placeholder image">
                         </div>
                         <p class="cathegory-label small-label">{{ cuisine }} Recipes</p>
                     </a>
@@ -74,7 +74,7 @@
                 <div class="meal-type-item item-wrapper">
                     <a href="{% url 'author_list' author %}">
                         <div class="meal-img-wrap">
-                            <img src="{% static 'images/default.webp' %}" class="order-by-img" alt="Asian">
+                            <img src="{% static 'images/default.webp' %}" class="order-by-img" width="100%" alt="default image">
                         </div>
                         <p class="cathegory-label small-label">{{ author.username | capfirst }}</p>
                     </a>
