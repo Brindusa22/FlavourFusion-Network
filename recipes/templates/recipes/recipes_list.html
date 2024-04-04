@@ -4,7 +4,11 @@
 
 {% block content %}
 
-<div class="row">
+<div class="row mx-3 mx-lg-5">
+    <!-- add a dynamically generated title with the context variable passed from the view of each category -->
+    <div>
+        <h2>Category: {{ category |title }}</h2>
+    </div>
     {% if recipes %}
         {% for recipe in recipes %}
         <div class="col-md-4">
@@ -38,7 +42,7 @@
         </div>
         {% if forloop.counter|divisibleby:3 %}
         </div>
-        <div class="row">
+        <div class="row mx-3 mx-lg-5">
         {% endif %}
         {% endfor %}
         </div>
@@ -48,7 +52,7 @@
             <p>No recipes found.</p>
         </div>
     {% endif %}
-    
+ 
 </div>
 
 {% if is_paginated %}

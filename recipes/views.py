@@ -48,7 +48,8 @@ def cuisine_list(request, cuisine):
     return render(
         request,
         'recipes/recipes_list.html',
-        {'recipes': recipes}
+        {'recipes': recipes,
+         'category': cuisine}
     )
 
 
@@ -62,7 +63,8 @@ def meal_type_list(request, meal_type):
     return render(
         request,
         'recipes/recipes_list.html',
-        {'recipes': recipes}
+        {'recipes': recipes,
+         'category': meal_type}
     )
 
 
@@ -78,7 +80,8 @@ def author_list(request, username):
         request,
         'recipes/recipes_list.html',
         {'recipes': recipes,
-         'author': author }
+         'author': author,
+         'category': author }
     )      
 
 
