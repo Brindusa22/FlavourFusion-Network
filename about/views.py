@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from .models import About
 from django.contrib import messages
 from .forms import RequestForm
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 
@@ -18,6 +19,8 @@ def about_page(request):
                     request, messages.SUCCESS,
                     "You have successfully submitted your request!"
                 )
+
+        return HttpResponseRedirect(reverse('about'))
 
 
     about = About.objects.all().order_by('date_updated').first()
