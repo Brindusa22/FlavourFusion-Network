@@ -78,10 +78,8 @@
             <div class="col-lg-6 recipe-image">
                 {% if "placeholder" in recipe.recipe_image.url %}
                 <img src="{% static 'images/default.webp' %}" class="scale" alt="placeholder">
-                {% else %}
-                <img class="card-img-top" src="{{ recipe.recipe_image.url }}" width="100%"
-                alt="{{ recipe.title }}"></a>
-                {% endif %}
+                {% else%}
+                {%5}
             </div>
         </div>
 

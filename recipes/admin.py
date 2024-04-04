@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Recipe, RecipeRating
+from .models import Recipe, RecipeRating, UserProfile
 from django_summernote.admin import SummernoteModelAdmin
 import json
 
@@ -11,7 +11,9 @@ class RecipeAdmin(SummernoteModelAdmin):
     list_filter = ('status', 'created_on')
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('description', 'ingredients', 'get_ingredients', 'instructions')
+
    
 # Register your models here.
 
 admin.site.register(RecipeRating)
+admin.site.register(UserProfile)

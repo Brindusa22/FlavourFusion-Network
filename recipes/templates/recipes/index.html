@@ -74,7 +74,17 @@
                 <div class="meal-type-item item-wrapper">
                     <a href="{% url 'author_list' author %}">
                         <div class="meal-img-wrap">
+                           <!-- an author filed (ForeignKey to the User model) was added to the UserProfile model (which has the user_image field) 
+                            to access the user_image from UserProfile model through the author field which is passed to this template through the 
+                            get_context_data method in the RecipeList class based view
+                          -->
+                            {% if "placeholder" in author.user.user_image.url %}
                             <img src="{% static 'images/default.webp' %}" class="order-by-img" width="100%" alt="default image">
+                            {% else %}
+                           <img class="card-img-top order-by-img" src="{{ author.user.user_image.url }}" width="50%"
+                            alt="{{ author.user.username }}"></a>
+                            {% endif %}
+                         
                         </div>
                         <p class="cathegory-label small-label">{{ author.username | capfirst }}</p>
                     </a>

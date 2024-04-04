@@ -1,8 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.contrib.auth.models import User
-from .models import Recipe, RecipeRating
-from about.models import About
+from .models import Recipe, RecipeRating, UserProfile
 from .forms import ReviewForm
 
 
@@ -34,7 +33,7 @@ class RecipeList(generic.ListView):
         cuisine = Recipe.objects.values_list('cuisine', flat=True)
         unique_cuisine = set(cuisine)
         context['cuisines'] = sorted(unique_cuisine)
-
+       
         return context
 
 
