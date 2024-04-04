@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib.auth.models import User
 from .models import Recipe, RecipeRating, UserProfile
 from .forms import ReviewForm
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
@@ -107,10 +108,9 @@ def recipe_detail(request, slug):
          
             review = review_form.save(commit=False)
             review.recipe = recipe
-            review.author = request.user
-            
+            review.author = request.user 
             review.save()
-
+            return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
     
     review_form = ReviewForm()
    
