@@ -363,6 +363,15 @@ body {
     padding: 10px 25px;
 }
 
+#commentForm {
+    margin-top: 1.3em;
+}
+
+#login-mesg p {
+    text-align: center;
+    font-size: 20px;
+}
+
 /* Styles for recipe page */
 
 .categories-wrapper {
@@ -465,6 +474,12 @@ body {
 .register-container {
     padding-bottom: 3rem;
 }
+
+.display-username {
+    color: #c7460b;
+}
+
+
 
 /* Styles for About page */
 

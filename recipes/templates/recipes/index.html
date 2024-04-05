@@ -19,10 +19,10 @@
         <div class="row mb-3">
             <div class="col-12 search-by-label">Search By:</div>
             <div class="row mt-2 justify-content-between">
-                <div class="col-auto"><a href="#by-cuisine" class="category-btn jump-btns">Cuisine &darr;</div></a>
-                <div class="col-auto"><a href="#by-mealtype" class="category-btn jump-btns">Meal Type &darr;</div></a>
-                <div class="col-auto"><a href="#by-author" class="category-btn jump-btns">Author &darr;</div></a>
-                <div class="col-auto"><a href="#all-recipes" class="category-btn jump-btns">View all Recipes &darr;</div></a>
+                <div class="col-auto"><a href="#by-cuisine" class="category-btn jump-btns">Cuisine &darr;</a></div>
+                <div class="col-auto"><a href="#by-mealtype" class="category-btn jump-btns">Meal Type &darr;</a></div>
+                <div class="col-auto"><a href="#by-author" class="category-btn jump-btns">Author &darr;</a></div>
+                <div class="col-auto"><a href="#all-recipes" class="category-btn jump-btns">View all Recipes &darr;</a></div>
             </div>
         </div>
     </div>
@@ -102,7 +102,7 @@
                 
                     {% for recipe in object_list %}
                     <div class="col-lg-6 col-sm-12">
-                        <div class="card mb-4" h-100>
+                        <div class="card mb-4" >
                             <div class="card-content">
                                 <div class="image-container">
                                     <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
