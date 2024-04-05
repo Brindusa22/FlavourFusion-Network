@@ -7,5 +7,4 @@ class RequestForm(forms.ModelForm):
         model = RecipePostRequest
         fields = ('name',
                   'email',
-                  'message'
-                  )
+                  'message')

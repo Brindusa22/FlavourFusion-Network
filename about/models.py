@@ -11,7 +11,7 @@ class About(models.Model):
     date_updated = models.DateTimeField(auto_now=True)
     profile_image = CloudinaryField('image', default='placeholder')
 
-    def __str__ (self):
+    def __str__(self):
         return f"{self.name} | last updated on  {self.date_updated}"
 
 

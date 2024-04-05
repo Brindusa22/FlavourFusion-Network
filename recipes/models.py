@@ -34,7 +34,8 @@ class Recipe(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     status =  models.IntegerField(choices=STATUS, default=0)
 
-    # Code to generate a unique slug combining title and username inspired from https://www.kodnito.com/posts/slugify-urls-django/
+    # Code to generate a unique slug combining title and username inspired from:
+    #  https://www.kodnito.com/posts/slugify-urls-django/
     def save(self, *args, **kwargs):
         if not self.slug:
             slug = slugify(self.title)

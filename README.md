@@ -45,12 +45,24 @@ On the Homepage the user has two options: he can access the recipes groupped by 
 
 ## Testing
 
+I have manually tested this project by checking all the forms and submitting various inputs and thir outcomes in the admin page
 
 ### Validator Testing
 
 - W3C Validator:
- - 
 
+  ![W3c Validator](static/images/w3c-validator.png)
+
+ - I have solved most of the errors that W3C Validator returned, with a few exceptions. For the Home page it returns no errors. However for the Recipe and the About page the errors refer to the style elemets errors that were not into my code, but they were part of the paragraph styled with Summernote in the admin page. 
+
+- PEP8:
+    - No errors were returned from PEP8 Python Validator.
+
+     ![PEP8 Python Validator](static/images/python-linter.png)
+
+- Lighthouse report:
+
+    ![Lighthouse report](static/images/lighthouse.png)
 
 ### Bugs
 #### Solved Bugs
@@ -66,3 +78,41 @@ On the Homepage the user has two options: he can access the recipes groupped by 
 #### Unsolved Bugs
 
 - There are no major issues unsolved.
+
+
+## Deployment
+
+This project was deployed on Heroku:
+
+- Steps to deployment:
+
+    - Fork or clone this repository
+    - Create a new Heroku app
+    - Ensure the Django project has the proper requirements.txt and Procfile
+    - In the Settings tab, set the Environment Variables
+    - Navigate to Deploy tab
+    - Connect the Heroku app to the repository
+    - Click on Deploy Branch
+    - View the app
+
+    The link to my deployed project:
+
+    https://flavour-fusion-network-a327ff165da1.herokuapp.com/
+
+## Credits
+
+- The recipes were taken from [TheMealDB](https://www.themealdb.com/api.php), a free API for recipes:
+    https://www.themealdb.com/api.php
+
+- For the rating system I have installed and used _Django Star Ratings_ following the instructions found in the documentation:
+    https://django-star-ratings.readthedocs.io/en/latest/index.html?highlight=static#usage
+
+- I have found the templates for Star Ratings, which I have updated to use in my project on:
+    https://github.com/wildfish/django-star-ratings
+
+- The code to generate a unique slug was taken partially from:
+    https://www.kodnito.com/posts/slugify-urls-django/
+
+-  I have found all the relevant information in the Django documentation pages which was very useful:
+    https://docs.djangoproject.com/en/4.2/ref/models/fields/#django.db.models.ImageField
+    https://docs.djangoproject.com/en/1.11/ref/contrib/admin/#django.contrib.admin.ModelAdmin.readonly_fields
