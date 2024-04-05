@@ -1,6 +1,5 @@
-from .models import RecipePostRequest
 from django import forms
-
+from .models import RecipePostRequest
 
 class RequestForm(forms.ModelForm):
     class Meta:

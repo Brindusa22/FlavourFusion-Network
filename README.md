@@ -17,11 +17,12 @@ On the Homepage the user has two options: he can access the recipes groupped by 
 - The Recipe page contains all the categories of recipes including the list of all recipes. The filter is represented by 4 clickable buttons that redirect the user to the respective section. When clicked, each category opens in a new page.
 - Each recipe can be viewd in detail on a separate page. It containes detailed information about the recipe such as a short description a main picture and a recipe detail card with ingredients, that can be checked, instructions, total time, servings, ratings preview and a small image. If the user wants to skip directly to this part, there is a button at the top of the page for this.
     
-    ![Recipe card redirect](static/images/redirect_button.png)
+   ![Recipe card redirect](static/images/redirect_button.png)
+
     ![Recipe card](static/images/recipe_card.png)
     
 
-- The recipe detail page has also a review sistem consisting of star ratings or comments. The user can leave a review or star rating only if he is logged in. The user can modify his star rating.
+- The recipe detail page has also a review system consisting of star ratings or comments. The user can leave a review or star rating only if he is logged in. The user can modify his star rating.
 
     ![Recipe rating](static/images/recipe_rating.png)
 
@@ -45,7 +46,7 @@ On the Homepage the user has two options: he can access the recipes groupped by 
 
 ## Testing
 
-I have manually tested this project by checking all the forms and submitting various inputs and thir outcomes in the admin page
+I have manually tested this project by checking all the forms and submitting various inputs and their outcomes in the admin page
 
 ### Validator Testing
 
@@ -53,7 +54,7 @@ I have manually tested this project by checking all the forms and submitting var
 
   ![W3c Validator](static/images/w3c-validator.png)
 
- - I have solved most of the errors that W3C Validator returned, with a few exceptions. For the Home page it returns no errors. However for the Recipe and the About page the errors refer to the style elemets errors that were not into my code, but they were part of the paragraph styled with Summernote in the admin page. 
+ - I have solved most of the errors that W3C Validator returned, with a few exceptions. For the Home page it returns no errors. However for the Recipe and the About page the errors refer to the style elemets errors, that were part of the paragraph styled with Summernote in the admin page. 
 
 - PEP8:
     - No errors were returned from PEP8 Python Validator.
@@ -68,12 +69,12 @@ I have manually tested this project by checking all the forms and submitting var
 #### Solved Bugs
 
 - After submitting the request form from the About page, each time the page was refreshed, the form was resubmitted. To solve that I have added HttpResponseRedirect to the about view to redirect the user to the about page after each posting.
-- I encountered challenges in setting the user images to the Author category. I have created a new model in the recipes app, name UserProfile, with the imaged stored on Cloudinary, allowing the uploading and manipulation via the admin page. 
+- I encountered challenges in setting the user images to the Author category. I have created a new model in the recipes app, named UserProfile, with the imaged stored on Cloudinary, allowing the uploading and manipulation via the admin page. 
    - In the RecipeList view, which is a class-based view, I needed to retrieve data from the UserProfile model to access the Cloudinary images. To achieve this, I utilized the get_context_data method. Within this method, I retrieved data from the UserProfile model and added it to the context variable. This allowed me to pass the data to the template for rendering.
    - However, a problem was caused by the nested loops. I had to iterate through the query results from the UserProfile model, but I was already inside a for loop that was itetrating through a list of _authors_ to create the _Author_ category. This resulted in multiple instances of the same author being created for each user image.
    - The problem was solved adding an _author_ field to the UserProfile model, which served as a ForeignKey to the User model. Since _Author_ was already defined in the _get_context_data_ method, as the result of the User model query, there was no need to query the data again or to pass it to the context. Instead, I could directly access the image for each user through the _author_ context variable. This was also convenient because I was already inside the for loop so I didn't have to iterate through the query results again, so I was able to avoid iterating through the query results multiple times within nested loops.
-- In the same view RecipeList view, when retrieving the data from the Recipe model and filter it to get the values of the the meal _type field, it returned a an object with the meal_type value of each of the recipes in the database. To solve this I have added the query results to a _set()_, which I have ordered alphabetically using the _sorted()_ method.
-- The meal_type field from the Recipe model has a list of choices. It is defined at the top of the _recipes.models.py_ as as a list of tuples, assigned to a constant named _MEAL_TYPE_. When accessing the values of the meal_type field, I would always get the key, which was a problem for the main course choice, which has as a key main_course. In the Django template variables for the _breadcrumbs_ I was able to use _{{ recipe.get_meal_type_display }}_ to solve the problem. However, for the heading  _category title_ in the recipes_list template I was unable to do so, since it is a dynamically generated title with the context variable passed from the view of each category.  
+- In the same view RecipeList, when retrieving the data from the Recipe model and filter it to get the values of the the meal _type field, it returned an object with the meal_type value of each of the recipes in the database. To solve this I have added the query results to a _set()_, which I have ordered alphabetically using the _sorted()_ method.
+- The meal_type field from the Recipe model has a list of choices. It is defined at the top of the _recipes.models.py_ as as a list of tuples, assigned to a constant named _MEAL_TYPE_. When accessing the values of the meal_type field, I would always get the key, which was a problem for the main course choice, which has as a key main_course. In the Django template variable for the _breadcrumbs_ I was able to use _{{ recipe.get_meal_type_display }}_ to solve the problem. However, for the heading  _category title_ in the recipes_list template I was unable to do so, since it is a dynamically generated title with the context variable passed from the view of each category.  
 
 #### Unsolved Bugs
 
@@ -92,6 +93,7 @@ This project was deployed on Heroku:
     - In the Settings tab, set the Environment Variables
     - Navigate to Deploy tab
     - Connect the Heroku app to the repository
+    - Choose the Main Branch for Deployment
     - Click on Deploy Branch
     - View the app
 

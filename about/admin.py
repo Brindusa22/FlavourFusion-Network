@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import About, RecipePostRequest
 from django_summernote.admin import SummernoteModelAdmin
+from .models import About, RecipePostRequest
 
 # Register your models here.
 

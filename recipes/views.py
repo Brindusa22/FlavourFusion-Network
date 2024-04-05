@@ -1,10 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
 from .models import Recipe, RecipeRating, UserProfile
 from .forms import ReviewForm
-from django.http import HttpResponseRedirect
-
 
 # Create your views here.
 class RecipeList(generic.ListView):

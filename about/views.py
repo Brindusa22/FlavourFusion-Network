@@ -1,8 +1,8 @@
 from django.shortcuts import render, reverse
-from .models import About
 from django.contrib import messages
 from .forms import RequestForm
 from django.http import HttpResponseRedirect
+from .models import About
 
 # Create your views here.
 
