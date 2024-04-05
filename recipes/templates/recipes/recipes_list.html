@@ -29,7 +29,7 @@
                     </div>
 
                     <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
-                        <h6 class="recipe-list-title">{{ recipe.title }}</h2>
+                        <h6 class="recipe-list-title">{{ recipe.title }}</h6>
                         <div>
                         {% ratings recipe template_name="star_ratings/widget.html" %}
                         </div>

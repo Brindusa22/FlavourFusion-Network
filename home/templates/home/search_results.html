@@ -2,50 +2,54 @@
 
 <div class="container search-wrapper">
   <!-- hide results button -->
-  <div class="row"> 
+  <div class="row">
     <div class="col d-flex">
-        <button type="clear" class="btn btn-lg" id="clearBtn"> x </button>
+      <button type="clear" class="btn btn-lg" id="clearBtn"> x </button>
     </div>
-</div>
-<div class="row">
-  {% for post in posts %}
+  </div>
+  <div class="row">
+    {% for post in posts %}
     <div class="container-search-results" style="max-width: 540px;">
       <a href="{% url 'recipe_detail' post.slug %}" class="post-link">
-      <div class="row g-0 h-100">        
-        <div class="col-4 h-100 image-container">
-          {% if "placeholder" in recipe.recipe_image.url %}
-          <img class="img-fluid rounded-start h-100" src="{% static 'images/default.webp' %}" alt="placeholder">
-          {% else %}
-          <img class="card-img-top" src="{{ post.recipe_image.url }}" width="50%"
-          alt="{{ post.title }}"></a>
-          {% endif %}
-          <div class="image-flash">
-            <p class="author">By: {{ post.author }}</p>
+        <div class="row g-0 h-100">
+          <div class="col-4 h-100 image-container">
+            {% if "placeholder" in recipe.recipe_image.url %}
+            <img class="img-fluid rounded-start h-100" src="{% static 'images/default.webp' %}" alt="placeholder">
+            {% else %}
+            <img class="card-img-top" src="{{ post.recipe_image.url }}" width="50%" alt="{{ post.title }}">
+      
+            {% endif %}
+          
+            <div class="image-flash">
+              <p class="author">By: {{ post.author }}</p>
+            </div>
+          </div>
+    
+          <div class="col-8 h-100">
+            <div class="card-body mt-3 h-100 d-flex flex-column justify-content-between align-items-center">
+              <h5>{{ post.title }}</h5>
+
+            <p><small class="text-body-secondary">Published on: {{ post.created_on}}</p></small></p>
+            </div>
           </div>
         </div>
-        <div class="col-8 h-100">
-          <div class="card-body mt-3 h-100 d-flex flex-column justify-content-between align-items-center">
-            <h5>{{ post.title }}</h5>
+      </a>
+    
+    </div>
   
-            <p><small class="text-body-secondary">Published on: {{ post.created_on}}
-            </p></small></p>
-          </div>
-        </div>   
-      </div>
-    </a>
-  </div>
-  {% if forloop.counter|divisibleby:2 %}
-  
+
+{% if forloop.counter|divisibleby:2 %}
+
 </div>
 <div class="row">
   {% endif %}
-{% endfor %}
+  {% endfor %}
 </div>
 </div>
 
 <!-- handle the close button for the search results area to toggle off the results -->
 <script>
-  document.getElementById("clearBtn").addEventListener("click", function() {
-          document.getElementById("results-area").innerHTML = "";
+  document.getElementById("clearBtn").addEventListener("click", function () {
+    document.getElementById("results-area").innerHTML = "";
   })
 </script>

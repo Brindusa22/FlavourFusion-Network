@@ -25,9 +25,9 @@
                     <!-- Page title goes in these h1 tags -->
                     <h1 class="card-title">About</h1>
                     {% if "placeholder" in recipe.recipe_image.url %}
-                    <img src="{% static 'images/default.webp' %}" class="profile-img" width="100%" alt="placeholder image">
+                    <img src="{% static 'images/default.webp' %}" class="profile-img" alt="placeholder image">
                     {% else %}
-                    <img class="profile-img" src="{{ about.profile_image.url }}" width="100%" alt="{{ about.name }}">
+                    <img class="profile-img" src="{{ about.profile_image.url }}" alt="{{ about.name }}">
                     {% endif %}
                     </div>
                     <!-- About author goes before | created date goes after -->
@@ -36,8 +36,8 @@
             </div>
             <div class="row g-0 justify-content-center">
                 <div class="col-lg-6 internal-nav"> 
-                    <a href="#contact-us">
-                        <button>Contact Us &darr;</button>
+                    <a href="#contact-us" class="jumpto">
+                        <span>Contact Us &darr;</span>
                     </a>
                 </div>
             </div>
@@ -66,7 +66,7 @@
         <div class="row g-0 justify-content-center">
             <div class="col-lg-6 sm-12 recipe-image">
                 
-                <img src="{% static 'images/default_user.jpg' %}" class="rounded" width="95%" alt="placeholder image">
+                <img src="{% static 'images/default_user.jpg' %}" class="rounded about-img" alt="placeholder image">
               
                
             </div>
@@ -79,14 +79,14 @@
                 <p class="form-description">Join us! If you have a recipe that you are fond of and you want to share it with us allowing users aorund 
                     the world to experience the taste of your country, get in touch, sent us a message.
                 </p>
-                <form method="post" clas="request-form">
+                <form method="post" class="request-form">
                     {{ request_form | crispy }}
                     {% csrf_token %}
                     <button type="submit" id="submitBtn" class="btn btn-signup btn-lg">Submit</button>
                 </form>           
             </div>
         </div>   
-
+    </div>
 
 </div>
 {% endblock content %}

@@ -19,10 +19,10 @@
         <div class="row mb-3">
             <div class="col-12 search-by-label">Search By:</div>
             <div class="row mt-2 justify-content-between">
-                <div class="col-auto"><a href="#by-cuisine"><button class="category-btn">Cuisine &darr;</button></div></a>
-                <div class="col-auto"><a href="#by-mealtype"><button class="category-btn">Meal Type &darr;</button></div></a>
-                <div class="col-auto"><a href="#by-author"><button class="category-btn">Author &darr;</button></div></a>
-                <div class="col-auto"><a href="#all-recipes"><button class="category-btn">View all Recipes &darr;</button></div></a>
+                <div class="col-auto"><a href="#by-cuisine" class="category-btn jump-btns">Cuisine &darr;</div></a>
+                <div class="col-auto"><a href="#by-mealtype" class="category-btn jump-btns">Meal Type &darr;</div></a>
+                <div class="col-auto"><a href="#by-author" class="category-btn jump-btns">Author &darr;</div></a>
+                <div class="col-auto"><a href="#all-recipes" class="category-btn jump-btns">View all Recipes &darr;</div></a>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
                 <div class="meal-type-item item-wrapper">
                     <a href="{% url 'cuisine_list' cuisine=cuisine %}">
                         <div class="meal-img-wrap">
-                            <img src="{% static 'images/' %}{{ cuisine|lower }}.png" class="order-by-img" width="50%" alt="placeholder image">
+                            <img src="{% static 'images/' %}{{ cuisine|lower }}.png" class="order-by-img" alt="placeholder image">
                         </div>
                         <p class="cathegory-label small-label">{{ cuisine }} Recipes</p>
                     </a>
@@ -79,10 +79,10 @@
                             get_context_data method in the RecipeList class based view
                           -->
                             {% if "placeholder" in author.user.user_image.url %}
-                            <img src="{% static 'images/default.webp' %}" class="order-by-img" width="100%" alt="default image">
+                            <img src="{% static 'images/default.webp' %}" class="order-by-img" alt="default image">
                             {% else %}
-                           <img class="card-img-top order-by-img" src="{{ author.user.user_image.url }}" width="50%"
-                            alt="{{ author.user.username }}"></a>
+                           <img class="card-img-top order-by-img" src="{{ author.user.user_image.url }}"
+                            alt="{{ author.user.username }}">
                             {% endif %}
                          
                         </div>
@@ -107,11 +107,12 @@
                                 <div class="image-container">
                                     <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
                                         {% if "placeholder" in recipe.recipe_image.url %}
-                                        <img class="card-img-top" src="{% static 'images/default.webp' %}" width="100%"
+                                        <img class="card-img-top" src="{% static 'images/default.webp' %}"
                                             alt="placeholder image">
                                         {% else %}
-                                        <img class="card-img-top" src="{{ recipe.recipe_image.url }}" width="100%"
-                                            alt="{{ recipe.title }}"></a>
+                                        <img class="card-img-top" src="{{ recipe.recipe_image.url }}"
+                                            alt="{{ recipe.title }}">
+                                    </a>
                                         {% endif %}
                                     <div class="image-flash">
                                         <p class="author">Author: {{ recipe.author }}</p>
@@ -119,7 +120,7 @@
                                 </div>
 
                                 <a href="{% url 'recipe_detail' recipe.slug %}" class="post-link">
-                                    <h6 class="recipe-list-title">{{ recipe.title }}</h2>
+                                    <h2 class="recipe-list-title">{{ recipe.title }}</h2>
                                     <div>
                                     {% ratings recipe template_name="star_ratings/widget.html" %}
                                     </div>

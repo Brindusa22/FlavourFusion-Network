@@ -174,7 +174,7 @@ body {
 
 .find-under span {
     font-weight: bold;
-    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .find-btn {
@@ -183,10 +183,23 @@ body {
     margin-left: 5px;
     border: none;
     border-radius: 3px;
+    text-decoration: none;
+    padding: 1px 6px;
 }
 
-.find-btn:hover {
+.find-btn:hover,
+.jumpto:hover {
     background-color: #6d88a7;
+    color: white;
+}
+
+.jumpto {
+    background-color: #f0f0f0;
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 3px;
+    color: black;
+    padding: 1px 7px;
 }
 
 .recipe-container{
@@ -387,6 +400,7 @@ body {
     background-color: #c7460b;
     border: none;
     border-radius: 3px;
+    text-decoration: none;
 }
 
 .category-btn:hover {
@@ -423,6 +437,8 @@ body {
     align-items: center;
     text-align: center;
 }
+
+
 
 /* Styles for Registration pages */
 
@@ -465,6 +481,10 @@ body {
     border-radius: 50%;
 }
 
+.about-img {
+    width: 100%;
+}
+
 .form-title {
     margin-bottom: 30px;
 }
@@ -476,6 +496,7 @@ body {
 #id_email:hover, #id_name:hover, #id_message:hover {
     background-color: rgb(236, 235, 235);
 }
+
 
 /* Style for footer */
 .dark-bg {
