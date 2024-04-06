@@ -149,3 +149,20 @@ def edit_review(request, slug, review_id):
            
     
     return HttpResponseRedirect(reverse('recipe_detail', args=[slug])) 
+
+
+def delete_review(request, slug, review_id):
+    """
+    View to delete comment
+    """
+    queryset = Recipe.objects.filter(status=1)
+    recipe= get_object_or_404(queryset, slug=slug)
+    review = get_object_or_404(RecipeRating, pk=review_id)
+
+    if review.author == request.user:
+        review.delete()
+        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+
+    return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
