@@ -197,6 +197,17 @@
                     <div class="review-date">
                         {{ review.created_on }}
                     </div>
+                    <!-- display edit button for the logged in users -->
+                    {% if user.is_authenticated and review.author == user %}
+                    <button class="btn btn-edit" data-review-id="{{ review.id }}">Edit</button>
+                            <form id="editForm_{{ review.id }}" class="edit-form"
+                                method="POST" action="{% url 'edit_review' slug=recipe.slug review_id=review.id %}"
+                                style="display:none;">
+                                {% csrf_token %}
+                                <textarea name="comment">{{ review.comment }}</textarea>
+                                <button type="submit">Update</button>
+                            </form>
+                    {% endif %}
             
             </div>
             {% endfor %}    
@@ -206,3 +217,7 @@
     
 
 {% endblock content %}
+
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock %}

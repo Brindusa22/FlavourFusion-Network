@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib.auth.models import User
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Recipe, RecipeRating, UserProfile
 from .forms import ReviewForm
@@ -125,3 +126,26 @@ def recipe_detail(request, slug):
          'reviews': reviews,
          'reviews_count': reviews_count},
     )
+
+def edit_review(request, slug, review_id):
+    """
+    view to edit comments
+    """
+    
+
+    if request.method == "POST":
+        queryset = Recipe.objects.filter(status=1)
+        recipe = get_object_or_404(queryset, slug=slug)
+        review = get_object_or_404(RecipeRating, pk=review_id)
+        review_form = ReviewForm(data=request.POST, instance=review)
+
+        if review_form.is_valid() and review.author == request.user:
+            review = review_form.save(commit=False)
+            review.recipe = recipe
+            review.save()
+            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+           
+    
+    return HttpResponseRedirect(reverse('recipe_detail', args=[slug])) 
