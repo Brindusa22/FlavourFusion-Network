@@ -194,25 +194,28 @@
                     <div>
                         {{ review.comment | linebreaks }}
                     </div>
-                    <div class="review-date">
-                        {{ review.created_on }}
+                    <div class="review-date-btns">
+                        <div class="review-date">
+                            {{ review.created_on }}
+                        </div>
+                        <!-- display edit and delete buttons for the logged in users -->
+                        {% if user.is_authenticated and review.author == user %}
+                        <div class="update-btns">
+                            <button class="btn btn-edit" data-review-id="{{ review.id }}">Edit</button>
+                            <form id="editForm_{{ review.id }}" class="edit-form" method="POST"
+                                action="{% url 'edit_review' slug=recipe.slug review_id=review.id %}"
+                                style="display:none;">
+                                {% csrf_token %}
+                                <textarea name="comment">{{ review.comment }}</textarea>
+                                <button type="submit">Update</button>
+                            </form>
+                            <form action="{% url 'delete_review' slug=recipe.slug review_id=review.id %}" method="post"
+                                style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-delete" review_id="{{ review.id }}">Delete</button>
+                            </form>
+                        </div>
                     </div>
-                    <!-- display edit button for the logged in users -->
-                    {% if user.is_authenticated and review.author == user %}
-
-                    <button class="btn btn-edit" data-review-id="{{ review.id }}">Edit</button>
-                    <form id="editForm_{{ review.id }}" class="edit-form"
-                          method="POST" action="{% url 'edit_review' slug=recipe.slug review_id=review.id %}"
-                            style="display:none;">
-                            {% csrf_token %}
-                            <textarea name="comment">{{ review.comment }}</textarea>
-                            <button type="submit">Update</button>
-                    </form>
-                    <form action="{% url 'delete_review' slug=recipe.slug review_id=review.id %}" 
-                        method="post" style="display: inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-delete" review_id="{{ review.id }}">Delete</button>
-                    </form>
                     {% endif %}
             
             </div>
