@@ -372,6 +372,28 @@ body {
     font-size: 20px;
 }
 
+.review-date-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.update-btns .btn-edit {
+    background-color: #6c757d;
+    padding: 5px 10px;
+}
+
+.update-btns .btn-delete {
+    background-color: #c7460b;
+    padding: 5px 10px;
+}
+
+.update-btns .btn-edit:hover,
+.update-btns .btn-delete:hover {
+     color: white;
+     opacity: 0.6;
+}
+
 /* Styles for recipe page */
 
 .categories-wrapper {
