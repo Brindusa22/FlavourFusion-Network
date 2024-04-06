@@ -26,6 +26,10 @@ On the Homepage the user has two options: he can access the recipes groupped by 
 
     ![Recipe rating](static/images/recipe_rating.png)
 
+- If the user is logged in he can edit and modify or delete his comment
+
+    ![Review buttons](static/images/review-buttons.png)
+
 - Each recipe has tags displayed near its title, representing the categories under which the recipe can be found. When clicked they take the user to the page of that corresponding category, enabling thus the user to eassily find similar recipes. 
 
     ![Recipe tags](static/images/tags.png)
